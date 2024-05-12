@@ -13,12 +13,12 @@ class SwitchStateMachine extends BasicStateMachine {
   void create() {
     states_[state_(SwitchStates.stop)] = State([
       Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
-      Trans(Click(), state_(SwitchStates.play), OnPlay())
+      Trans(Click(), state_(SwitchStates.play), OnTrue())
     ]);
 
     states_[state_(SwitchStates.play)] = State([
       Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
-      Trans(Click(), state_(SwitchStates.stop), OnStop())
+      Trans(Click(), state_(SwitchStates.stop), OnFalse())
     ]);
   }
 

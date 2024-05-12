@@ -7,30 +7,16 @@ class OnNothing implements ITransitionMethod {
   }
 }
 
-// class OnSelect implements ITransitionMethod {
-//   @override
-//   void execute([var hashMap]) {
-//     print("@OnSelect $hashMap");
-//   }
-// }
-
-// class OnUnselect implements ITransitionMethod {
-//   @override
-//   void execute([var hashMap]) {
-//     print("@OnUnselect $hashMap");
-//   }
-// }
-
-class OnPlay implements ITransitionMethod {
+class OnTrue implements ITransitionMethod {
   @override
   void execute([var data]) {
-    print("@OnPlay $data");
+    print("@OnTrue $data");
   }
 }
 
-class OnStop implements ITransitionMethod {
+class OnFalse implements ITransitionMethod {
   @override
   void execute([var data]) {
-    print("@OnStop $data");
+    print("@OnFalse $data");
   }
 }
