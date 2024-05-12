@@ -11,14 +11,14 @@ class SwitchStateMachine extends BasicStateMachine {
 
   @override
   void create() {
-    states_[state_(SwitchStates.stop)] = State([
-      Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
-      Trans(Click(), state_(SwitchStates.play), OnTrue())
+    states_[state_(SwitchStates.off)] = State([
+      Trans(Reset(), state_(SwitchStates.off), OnNothing()),
+      Trans(Click(), state_(SwitchStates.on), OnTrue())
     ]);
 
-    states_[state_(SwitchStates.play)] = State([
-      Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
-      Trans(Click(), state_(SwitchStates.stop), OnFalse())
+    states_[state_(SwitchStates.on)] = State([
+      Trans(Reset(), state_(SwitchStates.off), OnNothing()),
+      Trans(Click(), state_(SwitchStates.off), OnFalse())
     ]);
   }
 
