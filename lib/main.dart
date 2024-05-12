@@ -60,7 +60,7 @@ class AppHomePage extends StatelessWidget {
         T: Icons.toggle_on_outlined,
         F: Icons.toggle_off_outlined,
         onAction: () {
-          yellow.done();
+          yellow.click();
         }
     );
 
@@ -73,7 +73,7 @@ class AppHomePage extends StatelessWidget {
         T: Icons.access_alarm,
         F: Icons.access_time,
         onAction: () {
-          purple.done();
+          purple.click();
         }
     );
 

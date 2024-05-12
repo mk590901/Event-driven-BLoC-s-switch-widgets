@@ -31,8 +31,8 @@ class FlatSwitch extends StatelessWidget {
   });
 
   //@override
-  void done() {
-    print("done:uuid");
+  void click() {
+    print("click:uuid");
     gestureDetector.onTap?.call();
   }
 
