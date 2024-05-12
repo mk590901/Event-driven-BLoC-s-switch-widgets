@@ -56,9 +56,9 @@ class FlatSwitch extends StatelessWidget implements IDone {
               color: backgroundColor,
               child: Center(
                 child: Icon(
-                    state.state().name == 'stop'
-                        ? F //Icons.play_arrow_sharp
-                        : T, //Icons.pause_sharp,
+                    state.state() == SwitchStates.stop
+                        ? F
+                        : T,
                     size: h_(height * 0.95),
                     color: foregroundColor),
               ),
