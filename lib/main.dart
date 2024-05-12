@@ -1,5 +1,5 @@
 import 'widgets/button_widget.dart';
-import 'widgets/icon_widget.dart';
+//import 'widgets/icon_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,8 +40,8 @@ class AppHomePage extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
     );
 
-    ButtonWidget yellow =
-    ButtonWidget(
+    FlatSwitch yellow =
+    FlatSwitch(
       backgroundColor: Colors.deepOrangeAccent,
       foregroundColor: Colors.yellow,
       width: 24,
@@ -52,8 +52,8 @@ class AppHomePage extends StatelessWidget {
       onAction: () {},
     );
 
-    ButtonWidget purple =
-    ButtonWidget(
+    FlatSwitch purple =
+    FlatSwitch(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.blueGrey.shade100,
         width: 24,
@@ -66,8 +66,8 @@ class AppHomePage extends StatelessWidget {
         }
     );
 
-    ButtonWidget blue =
-    ButtonWidget(
+    FlatSwitch blue =
+    FlatSwitch(
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.blueGrey.shade100,
         width: 24,
@@ -88,16 +88,16 @@ class AppHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 16.0),
-              IconTileWidget(
-                  tileColor: Colors.blueGrey.shade300,
-                  iconColor: Colors.amber.shade200),
-              const SizedBox(height: 16.0),
-              IconTileWidget(
-                  tileColor: Colors.blueGrey.shade200,
-                  iconColor: Colors.purple.shade300),
-              const SizedBox(height: 16.0),
-              ButtonWidget(
+              // const SizedBox(height: 16.0),
+              // IconTileWidget(
+              //     tileColor: Colors.blueGrey.shade300,
+              //     iconColor: Colors.amber.shade200),
+              // const SizedBox(height: 16.0),
+              // IconTileWidget(
+              //     tileColor: Colors.blueGrey.shade200,
+              //     iconColor: Colors.purple.shade300),
+              // const SizedBox(height: 16.0),
+              FlatSwitch(
                   backgroundColor: Colors.blueGrey.shade100,
                   foregroundColor: Colors.blueAccent,
                   width: 24,
