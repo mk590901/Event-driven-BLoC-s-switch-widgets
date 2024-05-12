@@ -5,10 +5,10 @@ import 'package:uuid/uuid.dart';
 import '../SizeConfig.dart';
 import '../blocks/button_bloc.dart';
 import '../events/switch_events.dart';
-import '../interfaces/i_done.dart';
+//import '../interfaces/i_done.dart';
 import '../states/button_state.dart';
 
-class FlatSwitch extends StatelessWidget implements IDone {
+class FlatSwitch extends StatelessWidget {
   final String uuid = const Uuid().v4().toString();
 
   final Color backgroundColor;

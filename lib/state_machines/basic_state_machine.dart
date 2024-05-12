@@ -14,17 +14,17 @@ abstract class BasicStateMachine {
     create();
   }
 
-  void setAction(Event event, IExtendedAction action) {
-    extendedActions_[event.runtimeType] = action;
-  }
-
-  IExtendedAction? getAction(Event event) {
-    IExtendedAction? result;
-    if (extendedActions_.containsKey(event.runtimeType)) {
-      result = extendedActions_[event.runtimeType];
-    }
-    return result;
-  }
+  // void setAction(Event event, IExtendedAction action) {
+  //   extendedActions_[event.runtimeType] = action;
+  // }
+  //
+  // IExtendedAction? getAction(Event event) {
+  //   IExtendedAction? result;
+  //   if (extendedActions_.containsKey(event.runtimeType)) {
+  //     result = extendedActions_[event.runtimeType];
+  //   }
+  //   return result;
+  // }
 
   int dispatch(Event event) {
     State? stateEntity = states_[_currentState];
@@ -42,17 +42,17 @@ abstract class BasicStateMachine {
       return -1;
     }
 
-    if (event.getAction() != null) {
-      //@print ("dispatch.EVENT->${event.runtimeType} action Ok");
-    } else {
-      //@print ("dispatch.EVENT->${event.runtimeType} action is NULL");
-      IExtendedAction? action = getAction(event);
-      if (action != null) {
-        event.addAction(action);
-      }
-    }
+    // if (event.getAction() != null) {
+    //   //@print ("dispatch.EVENT->${event.runtimeType} action Ok");
+    // } else {
+    //   //@print ("dispatch.EVENT->${event.runtimeType} action is NULL");
+    //   // IExtendedAction? action = getAction(event);
+    //   // if (action != null) {
+    //   //   event.addAction(action);
+    //   // }
+    // }
 
-    event.getAction()?.run();
+    //event.getAction()?.run();
     _currentState = transaction.state();
 
     transaction.method()?.execute(
@@ -60,11 +60,11 @@ abstract class BasicStateMachine {
             ? event.getData()
             : event.getData().uuid());
 
-    if (event.getData() != null /*&& event.getData()!.isNotEmpty*/) {
-      if (event.isActivateGui()) {
-        event.action()?.done("${event.getData()}");
-      }
-    }
+    // if (event.getData() != null /*&& event.getData()!.isNotEmpty*/) {
+    //   if (event.isActivateGui()) {
+    //     event.action()?.done("${event.getData()}");
+    //   }
+    // }
     return _currentState;
   }
 
