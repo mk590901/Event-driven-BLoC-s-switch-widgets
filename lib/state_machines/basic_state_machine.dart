@@ -1,5 +1,5 @@
 import '../events/event.dart';
-import '../interfaces/i_extended_action.dart';
+//import '../interfaces/i_extended_action.dart';
 import '../interfaces/i_sink.dart';
 import 'state.dart';
 import 'transaction.dart';
@@ -7,7 +7,7 @@ import 'transaction.dart';
 abstract class BasicStateMachine {
   late int _currentState;
   final Map<int, State> states_ = <int, State>{};
-  final Map<Type, IExtendedAction> extendedActions_ = <Type, IExtendedAction>{};
+  //final Map<Type, IExtendedAction> extendedActions_ = <Type, IExtendedAction>{};
 
 //  Constructor
   BasicStateMachine(this._currentState) {
@@ -36,9 +36,10 @@ abstract class BasicStateMachine {
     Transaction? transaction = stateEntity.transaction(event);
     if (transaction == null) {
       print(
-          "Failed to get transaction for [${getStateName(_currentState)}], event->${event}");
-      event.action()?.done(
-          "Trans ${getStateName(_currentState)}->${event.runtimeType}->?");
+          """
+Failed to get transaction for [${getStateName(_currentState)}], event->${event}""");
+      // event.action()?.done(
+      //     "Trans ${getStateName(_currentState)}->${event.runtimeType}->?");
       return -1;
     }
 

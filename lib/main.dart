@@ -1,5 +1,4 @@
 import 'widgets/flat_switch.dart';
-//import 'widgets/icon_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {

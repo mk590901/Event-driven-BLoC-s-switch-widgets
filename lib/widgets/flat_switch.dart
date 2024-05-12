@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
-
 import '../SizeConfig.dart';
-import '../blocks/button_bloc.dart';
+import '../blocks/switch_bloc.dart';
 import '../events/switch_events.dart';
-//import '../interfaces/i_done.dart';
 import '../states/button_state.dart';
 
 class FlatSwitch extends StatelessWidget {
