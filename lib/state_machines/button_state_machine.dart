@@ -6,19 +6,19 @@ import 'basic_state_machine.dart';
 import 'state.dart';
 import 'trans.dart';
 
-class ButtonStateMachine extends BasicStateMachine {
-  ButtonStateMachine(super.currentState);
+class SwitchStateMachine extends BasicStateMachine {
+  SwitchStateMachine(super.currentState);
 
   @override
   void create() {
-    states_[state_(ButtonStates.stop)] = State([
-      Trans(Reset(), state_(ButtonStates.stop), OnNothing()),
-      Trans(Click(), state_(ButtonStates.play), OnPlay())
+    states_[state_(SwitchStates.stop)] = State([
+      Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
+      Trans(Click(), state_(SwitchStates.play), OnPlay())
     ]);
 
-    states_[state_(ButtonStates.play)] = State([
-      Trans(Reset(), state_(ButtonStates.stop), OnNothing()),
-      Trans(Click(), state_(ButtonStates.stop), OnStop())
+    states_[state_(SwitchStates.play)] = State([
+      Trans(Reset(), state_(SwitchStates.stop), OnNothing()),
+      Trans(Click(), state_(SwitchStates.stop), OnStop())
     ]);
   }
 

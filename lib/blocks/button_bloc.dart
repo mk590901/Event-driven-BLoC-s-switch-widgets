@@ -10,7 +10,7 @@ class ButtonBloc extends Bloc<Event, ButtonState> {
   BasicStateMachine? _stateMachine;
 
   ButtonBloc(ButtonState state) : super(state) {
-    _stateMachine = ButtonStateMachine(state_(ButtonStates.stop));
+    _stateMachine = SwitchStateMachine(state_(SwitchStates.stop));
     on<Reset>((event, emit) {
       done(event, emit);
     });
@@ -22,7 +22,7 @@ class ButtonBloc extends Bloc<Event, ButtonState> {
   void done(Event event, Emitter<ButtonState> emit) {
     int newState = _stateMachine!.dispatch(event);
     if (newState >= 0) {
-      ButtonState nextState = ButtonState(ButtonStates.values[newState]);
+      ButtonState nextState = ButtonState(SwitchStates.values[newState]);
       nextState.setData(event.getData());
       emit(nextState);
     }
