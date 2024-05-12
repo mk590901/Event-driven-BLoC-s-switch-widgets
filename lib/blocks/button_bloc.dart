@@ -6,10 +6,10 @@ import '../state_machines/basic_state_machine.dart';
 import '../state_machines/button_state_machine.dart';
 import '../states/button_state.dart';
 
-class ButtonBloc extends Bloc<Event, ButtonState> {
+class ButtonBloc extends Bloc<Event, SwitchState> {
   BasicStateMachine? _stateMachine;
 
-  ButtonBloc(ButtonState state) : super(state) {
+  ButtonBloc(SwitchState state) : super(state) {
     _stateMachine = SwitchStateMachine(state_(SwitchStates.stop));
     on<Reset>((event, emit) {
       done(event, emit);
@@ -19,10 +19,10 @@ class ButtonBloc extends Bloc<Event, ButtonState> {
     });
   }
 
-  void done(Event event, Emitter<ButtonState> emit) {
+  void done(Event event, Emitter<SwitchState> emit) {
     int newState = _stateMachine!.dispatch(event);
     if (newState >= 0) {
-      ButtonState nextState = ButtonState(SwitchStates.values[newState]);
+      SwitchState nextState = SwitchState(SwitchStates.values[newState]);
       nextState.setData(event.getData());
       emit(nextState);
     }

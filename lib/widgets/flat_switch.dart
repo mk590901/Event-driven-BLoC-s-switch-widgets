@@ -42,8 +42,8 @@ class FlatSwitch extends StatelessWidget implements IDone {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider<ButtonBloc>(
-      create: (_) => ButtonBloc(ButtonState(SwitchStates.stop)),
-      child: BlocBuilder<ButtonBloc, ButtonState>(builder: (context, state) {
+      create: (_) => ButtonBloc(SwitchState(SwitchStates.stop)),
+      child: BlocBuilder<ButtonBloc, SwitchState>(builder: (context, state) {
           gestureDetector = GestureDetector(
           onTap: () {
             context.read<ButtonBloc>().add(Click.ext(uuid));

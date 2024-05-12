@@ -4,11 +4,11 @@ int state_(SwitchStates state) {
   return state.index;
 }
 
-class ButtonState {
+class SwitchState {
   final SwitchStates _state;
   String? _data;
 
-  ButtonState(this._state) {
+  SwitchState(this._state) {
     _data = null;
   }
 
