@@ -1,3 +1,4 @@
+import 'periodic_action.dart';
 import 'widgets/flat_switch.dart';
 import 'package:flutter/material.dart';
 
@@ -15,16 +16,20 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
     useMaterial3: true,
         ),
-    home:const AppHomePage(title: 'Flutter (BLoC) k-State-Button'),
+    home: AppHomePage(title: 'Flutter (BLoC) k-State Switch'),
     );
   }
 }
 
-
 class AppHomePage extends StatelessWidget {
-  const AppHomePage({super.key, required this.title});
+  AppHomePage({super.key, required this.title});
+
+  static const int FREQ = 500; // 0.5s
 
   final String title;
+  bool _startStop = false;
+
+  final PeriodicAction obtain = PeriodicAction(const Duration(milliseconds: FREQ));
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,8 @@ class AppHomePage extends StatelessWidget {
       height: 16,
       T: Icons.toggle_on_outlined,
       F: Icons.toggle_off_outlined,
-      onAction: () {},
+      onAction: () {
+      },
     );
 
     FlatSwitch purple =
@@ -95,7 +101,9 @@ class AppHomePage extends StatelessWidget {
                         height: 16,
                         T: Icons.pause_sharp,
                         F: Icons.play_arrow_sharp,
-                        onAction: () {}
+                        onAction: () {
+                          onStartStop(blue);
+                        }
                     ),
                     blue,
                     purple,
@@ -106,5 +114,14 @@ class AppHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void onStartStop(final FlatSwitch blue) {
+    _startStop = !_startStop;
+    if (_startStop) {
+      obtain.start(blue.click);
+    } else {
+      obtain.stop();
+    }
   }
 }
