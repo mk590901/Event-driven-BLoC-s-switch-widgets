@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 
 import '../SizeConfig.dart';
 import '../blocks/button_bloc.dart';
-import '../events/button_events.dart';
+import '../events/switch_events.dart';
 import '../interfaces/i_done.dart';
 import '../states/button_state.dart';
 
@@ -41,12 +41,12 @@ class FlatSwitch extends StatelessWidget implements IDone {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return BlocProvider<ButtonBloc>(
-      create: (_) => ButtonBloc(SwitchState(SwitchStates.stop)),
-      child: BlocBuilder<ButtonBloc, SwitchState>(builder: (context, state) {
+    return BlocProvider<SwitchBloc>(
+      create: (_) => SwitchBloc(SwitchState(SwitchStates.stop)),
+      child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
           gestureDetector = GestureDetector(
           onTap: () {
-            context.read<ButtonBloc>().add(Click.ext(uuid));
+            context.read<SwitchBloc>().add(Click.ext(uuid));
             onAction?.call();
           },
           child: SizedBox(

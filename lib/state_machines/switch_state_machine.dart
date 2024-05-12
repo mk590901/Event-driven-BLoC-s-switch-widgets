@@ -1,4 +1,4 @@
-import '../events/button_events.dart';
+import '../events/switch_events.dart';
 import '../events/event.dart';
 import '../interfaces/trans_methods.dart';
 import '../states/button_state.dart';
