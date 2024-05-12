@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class AppHomePage extends StatelessWidget {
   const AppHomePage({super.key, required this.title});
 
@@ -43,11 +44,10 @@ class AppHomePage extends StatelessWidget {
     FlatSwitch(
       backgroundColor: Colors.deepOrangeAccent,
       foregroundColor: Colors.yellow,
-      width: 24,
+      width: 20,
       height: 16,
       T: Icons.toggle_on_outlined,
       F: Icons.toggle_off_outlined,
-      //iDone: null,
       onAction: () {},
     );
 
@@ -55,11 +55,10 @@ class AppHomePage extends StatelessWidget {
     FlatSwitch(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.blueGrey.shade100,
-        width: 24,
+        width: 20,
         height: 16,
         T: Icons.toggle_on_outlined,
         F: Icons.toggle_off_outlined,
-        //iDone: null,
         onAction: () {
           yellow.done();
         }
@@ -69,11 +68,10 @@ class AppHomePage extends StatelessWidget {
     FlatSwitch(
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.blueGrey.shade100,
-        width: 24,
+        width: 20,
         height: 16,
         T: Icons.access_alarm,
         F: Icons.access_time,
-        //iDone: null,
         onAction: () {
           purple.done();
         }
@@ -84,49 +82,25 @@ class AppHomePage extends StatelessWidget {
       appBar: appBar,
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const SizedBox(height: 16.0),
-              // IconTileWidget(
-              //     tileColor: Colors.blueGrey.shade300,
-              //     iconColor: Colors.amber.shade200),
-              // const SizedBox(height: 16.0),
-              // IconTileWidget(
-              //     tileColor: Colors.blueGrey.shade200,
-              //     iconColor: Colors.purple.shade300),
-              // const SizedBox(height: 16.0),
-              FlatSwitch(
-                  backgroundColor: Colors.blueGrey.shade100,
-                  foregroundColor: Colors.blueAccent,
-                  width: 24,
-                  height: 16,
-                  T: Icons.pause_sharp,
-                  F: Icons.play_arrow_sharp,
-                  //iDone: null,
-                  onAction: () {}
-              ),
-              const SizedBox(height: 16.0),
-                blue,
-              const SizedBox(height: 16.0),
-              // ButtonWidget(
-              //   backgroundColor: Colors.deepPurple,
-              //   foregroundColor: Colors.blueGrey.shade100,
-              //   width: 24,
-              //   height: 16,
-              //   T: Icons.toggle_on_outlined,
-              //   F: Icons.toggle_off_outlined,
-              //   iDone: null,
-              //   onAction: () {
-              //     yellow.done();
-              //   }
-              // ),
-                purple,
-              const SizedBox(height: 16.0),
-                yellow,
-              const SizedBox(height: 16.0),
-              const SizedBox(height: 16.0),
-              const SizedBox(height: 16.0),
+              ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatSwitch(
+                        backgroundColor: Colors.blueGrey.shade100,
+                        foregroundColor: Colors.blueAccent,
+                        width: 20,
+                        height: 16,
+                        T: Icons.pause_sharp,
+                        F: Icons.play_arrow_sharp,
+                        onAction: () {}
+                    ),
+                    blue,
+                    purple,
+                    yellow,
+                  ]),
             ],
           ),
         ),
