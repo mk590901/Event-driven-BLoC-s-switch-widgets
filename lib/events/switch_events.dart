@@ -23,9 +23,7 @@ class Reset<T> extends Event<T> {
 class Click<T> extends Event<T> {
   T? _data;
 
-  Click();
-
-  Click.ext(this._data);
+  Click([this._data]);
 
   @override
   T? getData() {

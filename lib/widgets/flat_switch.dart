@@ -43,7 +43,7 @@ class FlatSwitch extends StatelessWidget {
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
           gestureDetector = GestureDetector(
           onTap: () {
-            context.read<SwitchBloc>().add(Click.ext(uuid));
+            context.read<SwitchBloc>().add(Click(uuid));
             onAction?.call();
           },
           child: SizedBox(

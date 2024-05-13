@@ -35,7 +35,15 @@ class AppHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     AppBar appBar = AppBar(
       title: Text(title, style: const TextStyle(
-          color: Colors.white, fontSize: 16, fontStyle: FontStyle.italic)),
+          color: Colors.white, fontSize: 16, fontStyle: FontStyle.italic,
+        shadows: [
+          Shadow(
+            blurRadius: 8.0,
+            color: Colors.indigo,
+            offset: Offset(3.0, 3.0),
+          ),
+        ],
+      )),
       leading: IconButton(
         icon: const Icon(Icons.extension_outlined, color: Colors.white), // Icon widget
         onPressed: () {
