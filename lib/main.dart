@@ -47,24 +47,18 @@ class AppHomePage extends StatelessWidget {
 
     FlatSwitch yellow =
     FlatSwitch(
-      backgroundColor: Colors.deepOrangeAccent,
-      foregroundColor: Colors.yellow,
+      canvasColor: Colors.deepOrangeAccent,
+      imageColor: Colors.yellow,
       width: 20,
       height: 16,
-      T: Icons.toggle_on_outlined,
-      F: Icons.toggle_off_outlined,
-      onAction: () {
-      },
     );
 
     FlatSwitch purple =
     FlatSwitch(
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.blueGrey.shade100,
+        canvasColor: Colors.deepPurple,
+        imageColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
-        T: Icons.toggle_on_outlined,
-        F: Icons.toggle_off_outlined,
         onAction: () {
           yellow.click();
         }
@@ -72,8 +66,8 @@ class AppHomePage extends StatelessWidget {
 
     FlatSwitch blue =
     FlatSwitch(
-        backgroundColor: Colors.blueAccent,
-        foregroundColor: Colors.blueGrey.shade100,
+        canvasColor: Colors.blueAccent,
+        imageColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
         T: Icons.access_alarm,
@@ -95,8 +89,6 @@ class AppHomePage extends StatelessWidget {
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
                     FlatSwitch(
-                        backgroundColor: Colors.blueGrey.shade100,
-                        foregroundColor: Colors.blueAccent,
                         width: 20,
                         height: 16,
                         T: Icons.pause_sharp,

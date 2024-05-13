@@ -9,8 +9,8 @@ import '../states/button_state.dart';
 class FlatSwitch extends StatelessWidget {
   final String uuid = const Uuid().v4().toString();
 
-  final Color backgroundColor;
-  final Color foregroundColor;
+  final Color canvasColor;
+  final Color imageColor;
   final double width;
   final double height;
   final IconData? T;
@@ -21,18 +21,17 @@ class FlatSwitch extends StatelessWidget {
 
   FlatSwitch({
     super.key,
-    required this.backgroundColor,
-    required this.foregroundColor,
     required this.width,
     required this.height,
-    required this.T,
-    required this.F,
-    required this.onAction,
+    this.canvasColor = Colors.white30,
+    this.imageColor = Colors.black,
+    this.T = Icons.toggle_on_outlined,
+    this.F = Icons.toggle_off_outlined,
+    this.onAction,
   });
 
   //@override
   void click() {
-    print("click:uuid");
     gestureDetector.onTap?.call();
   }
 
@@ -51,14 +50,14 @@ class FlatSwitch extends StatelessWidget {
             width: w_(width),
             height: h_(height),
             child: Container(
-              color: backgroundColor,
+              color: canvasColor,
               child: Center(
                 child: Icon(
                     state.state() == SwitchStates.off
                         ? F
                         : T,
                     size: h_(height * 0.95),
-                    color: foregroundColor),
+                    color: imageColor),
               ),
             ), // Your widget to rebuild based on state
           ),
