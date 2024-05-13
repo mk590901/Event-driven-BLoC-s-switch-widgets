@@ -7,7 +7,7 @@ import '../events/switch_events.dart';
 import '../interfaces/i_click.dart';
 import '../states/button_state.dart';
 
-class FlatRoundedSwitch extends StatelessWidget  implements IClick {
+class FlatRoundedSwitch extends StatelessWidget implements IClick {
   final String uuid = const Uuid().v4().toString();
 
   final Color canvasColor;
@@ -50,28 +50,23 @@ class FlatRoundedSwitch extends StatelessWidget  implements IClick {
     return BlocProvider<SwitchBloc>(
       create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
-          gestureDetector = GestureDetector(
+        gestureDetector = GestureDetector(
           onTap: () {
             context.read<SwitchBloc>().add(Click(uuid));
             onAction?.call();
           },
-             child: Container(
-                 width: w_(width),
-                 height: h_(height),
-              decoration: BoxDecoration(
-                color: canvasColor,
-                borderRadius: BorderRadius.circular(borderRadius_!),
-                border: Border.all(color: borderColor, width: borderWidth_!),
-              ),
-              child: Center(
-                child: Icon(
-                    state.state() == SwitchStates.off
-                        ? F
-                        : T,
-                    size: h_(height * 0.8),
-                    color: imageColor),
-              ),
-            //), // Your widget to rebuild based on state
+          child: Container(
+            width: w_(width),
+            height: h_(height),
+            decoration: BoxDecoration(
+              color: canvasColor,
+              borderRadius: BorderRadius.circular(borderRadius_!),
+              border: Border.all(color: borderColor, width: borderWidth_!),
+            ),
+            child: Center(
+              child: Icon(state.state() == SwitchStates.off ? F : T,
+                  size: h_(height * 0.8), color: imageColor),
+            ),
           ),
         );
         return gestureDetector;

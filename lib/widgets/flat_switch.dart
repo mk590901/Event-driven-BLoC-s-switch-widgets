@@ -7,7 +7,6 @@ import '../events/switch_events.dart';
 import '../states/button_state.dart';
 import '../interfaces/i_click.dart';
 
-
 class FlatSwitch extends StatelessWidget implements IClick {
   final String uuid = const Uuid().v4().toString();
 
@@ -43,25 +42,19 @@ class FlatSwitch extends StatelessWidget implements IClick {
     return BlocProvider<SwitchBloc>(
       create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
-          gestureDetector = GestureDetector(
+        gestureDetector = GestureDetector(
           onTap: () {
             context.read<SwitchBloc>().add(Click(uuid));
             onAction?.call();
           },
-          child: SizedBox(
+          child: Container(
             width: w_(width),
             height: h_(height),
-            child: Container(
-              color: canvasColor,
-              child: Center(
-                child: Icon(
-                    state.state() == SwitchStates.off
-                        ? F
-                        : T,
-                    size: h_(height * 0.95),
-                    color: imageColor),
-              ),
-            ), // Your widget to rebuild based on state
+            color: canvasColor,
+            child: Center(
+              child: Icon(state.state() == SwitchStates.off ? F : T,
+                  size: h_(height * 0.95), color: imageColor),
+            ),
           ),
         );
         return gestureDetector;
