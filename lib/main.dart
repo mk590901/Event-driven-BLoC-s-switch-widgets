@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'periodic_action.dart';
 import 'widgets/flat_switch.dart';
-import 'package:flutter/material.dart';
+import 'widgets/flat_rounded_switch.dart';
+import 'interfaces/i_click.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,12 +74,13 @@ class AppHomePage extends StatelessWidget {
         }
     );
 
-    FlatSwitch blue =
-    FlatSwitch(
+    FlatRoundedSwitch blue =
+    FlatRoundedSwitch(
         canvasColor: Colors.blueAccent,
         imageColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
+        borderColor: Colors.white,
         T: Icons.access_alarm,
         F: Icons.access_time,
         onAction: () {
@@ -96,9 +99,10 @@ class AppHomePage extends StatelessWidget {
               ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FlatSwitch(
-                        width: 20,
+                    FlatRoundedSwitch(
+                        width: 16,
                         height: 16,
+                        borderRadius: 8,
                         T: Icons.pause_sharp,
                         F: Icons.play_arrow_sharp,
                         onAction: () {
@@ -116,10 +120,10 @@ class AppHomePage extends StatelessWidget {
     );
   }
 
-  void onStartStop(final FlatSwitch blue) {
+  void onStartStop(final IClick iClick) {
     _startStop = !_startStop;
     if (_startStop) {
-      obtain.start(blue.click);
+      obtain.start(iClick.click);
     } else {
       obtain.stop();
     }
