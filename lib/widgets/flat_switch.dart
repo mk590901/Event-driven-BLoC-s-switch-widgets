@@ -23,7 +23,7 @@ class FlatSwitch extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
-    this.canvasColor = Colors.white30,
+    this.canvasColor = Colors.transparent,
     this.imageColor = Colors.black,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
