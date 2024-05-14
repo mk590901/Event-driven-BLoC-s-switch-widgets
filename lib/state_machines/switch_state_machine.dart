@@ -1,7 +1,7 @@
 import '../events/switch_events.dart';
 import '../events/event.dart';
 import '../interfaces/trans_methods.dart';
-import '../states/button_state.dart';
+import '../states/switch_state.dart';
 import 'basic_state_machine.dart';
 import 'state.dart';
 import 'trans.dart';

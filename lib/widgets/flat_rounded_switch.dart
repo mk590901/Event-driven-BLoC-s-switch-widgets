@@ -5,7 +5,7 @@ import '../SizeConfig.dart';
 import '../blocks/switch_bloc.dart';
 import '../events/switch_events.dart';
 import '../interfaces/i_click.dart';
-import '../states/button_state.dart';
+import '../states/switch_state.dart';
 
 class FlatRoundedSwitch extends StatelessWidget implements IClick {
   final String uuid = const Uuid().v4().toString();
