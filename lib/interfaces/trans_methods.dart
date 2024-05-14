@@ -20,3 +20,18 @@ class OnFalse implements ITransitionMethod {
     print("@OnFalse $data");
   }
 }
+
+class OnDown implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnDown $data");
+  }
+}
+
+class OnUp implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnUp $data");
+  }
+}
+

@@ -36,3 +36,38 @@ class Click<T> extends Event<T> {
     return this;
   }
 }
+
+class Down<T> extends Event<T> {
+  T? _data;
+
+  Down([this._data]);
+
+  @override
+  T? getData() {
+    return _data;
+  }
+
+  @override
+  Down<T> setData([T? data]) {
+    _data = data;
+    return this;
+  }
+}
+
+class Up<T> extends Event<T> {
+  T? _data;
+
+  Up([this._data]);
+
+  @override
+  T? getData() {
+    return _data;
+  }
+
+  @override
+  Up<T> setData([T? data]) {
+    _data = data;
+    return this;
+  }
+}
+
