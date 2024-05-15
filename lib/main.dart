@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'periodic_action.dart';
+import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
@@ -89,6 +90,19 @@ class AppHomePage extends StatelessWidget {
         }
     );
 
+    FlatAdvancedRoundedSwitch blueAdvanced =
+    FlatAdvancedRoundedSwitch(
+        width: 20,
+        height: 16,
+        borderFColor: Colors.blueGrey,
+        imageFColor: Colors.blueGrey,
+        T: Icons.access_alarm,
+        F: Icons.access_time,
+        onAction: () {
+          purple.click();
+        }
+    );
+
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: appBar,
@@ -132,11 +146,13 @@ class AppHomePage extends StatelessWidget {
                         T: Icons.accessible_forward_sharp,
                         F: Icons.accessible_sharp,
                         onAction: () {
+                          //onStartStop(blue);
+                          blueAdvanced.click();
                         }
                     ),
-                    blue,
-                    purple,
-                    yellow,
+                    blueAdvanced,
+                    // purple,
+                    // yellow,
                   ]),
               const SizedBox(height: 16,)
 
