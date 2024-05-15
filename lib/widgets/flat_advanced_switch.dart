@@ -14,7 +14,10 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   final Color canvasFColor;
   final Color canvasDColor;
   final Color canvasUColor;
-  final Color imageColor;
+  final Color imageTColor;
+  final Color imageFColor;
+  final Color imageDColor;
+  final Color imageUColor;
   final double width;
   final double height;
   final IconData? T;
@@ -31,7 +34,10 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     this.canvasFColor = Colors.transparent,
     this.canvasDColor = Colors.black26,
     this.canvasUColor = Colors.black26,
-    this.imageColor = Colors.black,
+    this.imageTColor = Colors.black,
+    this.imageFColor = Colors.black,
+    this.imageDColor = Colors.black,
+    this.imageUColor = Colors.black,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
     this.onAction,
@@ -77,19 +83,19 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   }
 
   Color? iconColor(SwitchAdvancedStates state) {
-    Color? result = Colors.white;
+    Color? result = imageFColor;
     switch(state) {
       case SwitchAdvancedStates.off:
-        result = Colors.red;
+        result = imageFColor;
         break;
       case SwitchAdvancedStates.on:
-        result = Colors.green;
+        result = imageTColor;
         break;
       case SwitchAdvancedStates.off2on:
-        result = Colors.blue;
+        result = imageUColor;
         break;
       case SwitchAdvancedStates.on2off:
-        result = Colors.amber;
+        result = imageDColor;
         break;
       default:
     }
@@ -97,11 +103,11 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   }
 
   num iconSize(SwitchAdvancedStates state) {
-    double result = 0.90;
+    double result = 0.9;
     switch(state) {
       case SwitchAdvancedStates.off:
       case SwitchAdvancedStates.on:
-        result = 0.90;
+        result = 0.9;
         break;
       case SwitchAdvancedStates.off2on:
       case SwitchAdvancedStates.on2off:

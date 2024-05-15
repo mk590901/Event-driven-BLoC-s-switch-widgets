@@ -123,6 +123,12 @@ class AppHomePage extends StatelessWidget {
                         height: 16,
                         canvasFColor: Colors.blueAccent,
                         canvasTColor: Colors.indigo,
+                        canvasDColor: Colors.blueGrey,
+                        canvasUColor: Colors.teal,
+                        imageFColor: Colors.white,
+                        imageTColor: Colors.white30,
+                        imageDColor: Colors.amber,
+                        imageUColor: Colors.amberAccent,
                         T: Icons.accessible_forward_sharp,
                         F: Icons.accessible_sharp,
                         onAction: () {
