@@ -27,6 +27,8 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
   final double borderWidth;
   final Color borderTColor;
   final Color borderFColor;
+  final Color borderDColor;
+  final Color borderUColor;
   final IconData? T;
   final IconData? F;
   final VoidCallback? onAction;
@@ -41,6 +43,8 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
     this.borderWidth = 1,
     this.borderTColor = Colors.black,
     this.borderFColor = Colors.black,
+    this.borderDColor = Colors.black,
+    this.borderUColor = Colors.black,
     this.canvasTColor = Colors.black12,
     this.canvasFColor = Colors.transparent,
     this.canvasDColor = Colors.black26,
@@ -89,7 +93,6 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
               borderRadius: BorderRadius.circular(borderRadius_!),
               border: Border.all(color: borderColor(state.state()), width: borderWidth_!),
             ),
-            //color: canvasColor(state.state()),
             child: Center(
               child: Icon(state.state() == SwitchAdvancedStates.off ? F : T,
                   size: h_(height * iconSize(state.state())), color: iconColor(state.state())),
@@ -167,10 +170,10 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
         result = borderTColor;
         break;
       case SwitchAdvancedStates.off2on:
-        result = canvasUColor;
+        result = borderUColor;
         break;
       case SwitchAdvancedStates.on2off:
-        result = canvasDColor;
+        result = borderDColor;
         break;
       default:
     }

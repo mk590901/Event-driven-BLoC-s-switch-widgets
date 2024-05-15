@@ -95,6 +95,8 @@ class AppHomePage extends StatelessWidget {
         width: 20,
         height: 16,
         borderFColor: Colors.blueGrey,
+        borderDColor: Colors.amberAccent,
+        borderUColor: Colors.redAccent,
         imageFColor: Colors.blueGrey,
         T: Icons.access_alarm,
         F: Icons.access_time,
