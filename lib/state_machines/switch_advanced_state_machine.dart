@@ -40,8 +40,8 @@ class SwitchAdvancedStateMachine extends BasicStateMachine {
 
   @override
   String? getStateName(int state) {
-    // TODO: implement getStateName
-    throw UnimplementedError();
+    String result = SwitchAdvancedStates.values[state].name;
+    return result;
   }
 
   @override

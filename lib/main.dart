@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'periodic_action.dart';
+import 'widgets/flat_advanced_switch.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
@@ -117,11 +118,13 @@ class AppHomePage extends StatelessWidget {
               ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FlatSwitch(
-                        width: 20,
+                    FlatAdvancedSwitch(
+                        width: 16,
                         height: 16,
-                        T: Icons.power_off,
-                        F: Icons.power,
+                        canvasFColor: Colors.blueAccent,
+                        canvasTColor: Colors.indigo,
+                        T: Icons.accessible_forward_sharp,
+                        F: Icons.accessible_sharp,
                         onAction: () {
                         }
                     ),
