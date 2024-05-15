@@ -93,7 +93,7 @@ class AppHomePage extends StatelessWidget {
       appBar: appBar,
       body: SingleChildScrollView(
         child: Center(
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ButtonBar(
@@ -113,6 +113,25 @@ class AppHomePage extends StatelessWidget {
                     purple,
                     yellow,
                   ]),
+              const SizedBox(height: 16,),
+              ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatSwitch(
+                        width: 20,
+                        height: 16,
+                        T: Icons.power_off,
+                        F: Icons.power,
+                        onAction: () {
+                        }
+                    ),
+                    blue,
+                    purple,
+                    yellow,
+                  ]),
+              const SizedBox(height: 16,)
+
+
             ],
           ),
         ),
