@@ -1,16 +1,22 @@
-# button_k_states
+# BLoC Switches
 
 A new Flutter project.
 
-## Getting Started
+## Introduction
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## State machine I
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![switch_2_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/6c7b2ce3-29c1-4439-adf5-b1720e289b97)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## State machine II
+
+![switch_4_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/1c9bf663-b1d4-4287-a88c-9e5db740eb77)
+
+## Movie
+
+https://github.com/mk590901/BLoC-Switches/assets/125393245/9d196107-1c6c-4107-88d9-7a6fb74e8a60
+
+
+
