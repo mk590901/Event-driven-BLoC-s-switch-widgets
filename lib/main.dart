@@ -20,7 +20,7 @@ class SwitchDemoApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: SwitchHomePage(title: 'Flutter (BLoC) k-State Switch'),
+      home: SwitchHomePage(title: 'Flutter Switches (BLoC) Demo'),
     );
   }
 }
