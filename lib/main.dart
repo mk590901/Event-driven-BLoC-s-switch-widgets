@@ -7,49 +7,54 @@ import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SwitchDemoApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SwitchDemoApp extends StatelessWidget {
+  const SwitchDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
+      theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-    useMaterial3: true,
-        ),
-    home: AppHomePage(title: 'Flutter (BLoC) k-State Switch'),
+        useMaterial3: true,
+      ),
+      home: SwitchHomePage(title: 'Flutter (BLoC) k-State Switch'),
     );
   }
 }
 
-class AppHomePage extends StatelessWidget {
-  AppHomePage({super.key, required this.title});
+class SwitchHomePage extends StatelessWidget {
+  SwitchHomePage({super.key, required this.title});
 
   static const int FREQ = 500; // 0.5s
 
   final String title;
   bool _startStop = false;
 
-  final PeriodicAction obtain = PeriodicAction(const Duration(milliseconds: FREQ));
+  final PeriodicAction periodicAction =
+      PeriodicAction(const Duration(milliseconds: FREQ));
 
   @override
   Widget build(BuildContext context) {
     AppBar appBar = AppBar(
-      title: Text(title, style: const TextStyle(
-          color: Colors.white, fontSize: 16, fontStyle: FontStyle.italic,
-        shadows: [
-          Shadow(
-            blurRadius: 8.0,
-            color: Colors.indigo,
-            offset: Offset(3.0, 3.0),
-          ),
-        ],
-      )),
+      title: Text(title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontStyle: FontStyle.italic,
+            shadows: [
+              Shadow(
+                blurRadius: 8.0,
+                color: Colors.indigo,
+                offset: Offset(3.0, 3.0),
+              ),
+            ],
+          )),
       leading: IconButton(
-        icon: const Icon(Icons.extension_outlined, color: Colors.white), // Icon widget
+        icon: const Icon(Icons.extension_outlined, color: Colors.white),
+        // Icon widget
         onPressed: () {
           // Add your onPressed logic here
         },
@@ -57,27 +62,23 @@ class AppHomePage extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
     );
 
-    FlatSwitch yellow =
-    FlatSwitch(
+    FlatSwitch yellow = FlatSwitch(
       canvasColor: Colors.deepOrangeAccent,
       imageColor: Colors.yellow,
       width: 20,
       height: 16,
     );
 
-    FlatSwitch purple =
-    FlatSwitch(
+    FlatSwitch purple = FlatSwitch(
         canvasColor: Colors.deepPurple,
         imageColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
         onAction: () {
           yellow.click();
-        }
-    );
+        });
 
-    FlatRoundedSwitch blue =
-    FlatRoundedSwitch(
+    FlatRoundedSwitch blue = FlatRoundedSwitch(
         canvasColor: Colors.blueAccent,
         imageColor: Colors.blueGrey.shade100,
         width: 20,
@@ -87,11 +88,9 @@ class AppHomePage extends StatelessWidget {
         F: Icons.access_time,
         onAction: () {
           purple.click();
-        }
-    );
+        });
 
-    FlatAdvancedRoundedSwitch blueAdvanced =
-    FlatAdvancedRoundedSwitch(
+    FlatAdvancedRoundedSwitch blueAdvanced = FlatAdvancedRoundedSwitch(
         width: 20,
         height: 16,
         borderFColor: Colors.blueGrey,
@@ -102,63 +101,53 @@ class AppHomePage extends StatelessWidget {
         F: Icons.access_time,
         onAction: () {
           purple.click();
-        }
-    );
+        });
 
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: appBar,
-      body: SingleChildScrollView(
+      body: Align(
+        alignment: Alignment.center,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ButtonBar(
-                  alignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    FlatRoundedSwitch(
-                        width: 16,
-                        height: 16,
-                        borderRadius: 8,
-                        T: Icons.pause_sharp,
-                        F: Icons.play_arrow_sharp,
-                        onAction: () {
-                          onStartStop(blue);
-                        }
-                    ),
-                    blue,
-                    purple,
-                    yellow,
-                  ]),
-              const SizedBox(height: 16,),
-              ButtonBar(
-                  alignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    FlatAdvancedSwitch(
-                        width: 16,
-                        height: 16,
-                        canvasFColor: Colors.blueAccent,
-                        canvasTColor: Colors.indigo,
-                        canvasDColor: Colors.blueGrey,
-                        canvasUColor: Colors.teal,
-                        imageFColor: Colors.white,
-                        imageTColor: Colors.white30,
-                        imageDColor: Colors.amber,
-                        imageUColor: Colors.amberAccent,
-                        T: Icons.accessible_forward_sharp,
-                        F: Icons.accessible_sharp,
-                        onAction: () {
-                          //onStartStop(blue);
-                          blueAdvanced.click();
-                        }
-                    ),
-                    blueAdvanced,
-                    // purple,
-                    // yellow,
-                  ]),
-              const SizedBox(height: 16,)
-
-
+              ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+                FlatRoundedSwitch(
+                    width: 16,
+                    height: 16,
+                    borderRadius: 8,
+                    T: Icons.pause_sharp,
+                    F: Icons.play_arrow_sharp,
+                    onAction: () {
+                      onStartStop(blue);
+                    }),
+                blue,
+                purple,
+                yellow,
+              ]),
+              const SizedBox(
+                height: 16,
+              ),
+              ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+                FlatAdvancedSwitch(
+                    width: 16,
+                    height: 16,
+                    canvasFColor: Colors.blueAccent,
+                    canvasTColor: Colors.indigo,
+                    canvasDColor: Colors.blueGrey,
+                    canvasUColor: Colors.teal,
+                    imageFColor: Colors.white,
+                    imageTColor: Colors.white30,
+                    imageDColor: Colors.amber,
+                    imageUColor: Colors.amberAccent,
+                    T: Icons.accessible_forward_sharp,
+                    F: Icons.accessible_sharp,
+                    onAction: () {
+                      blueAdvanced.click();
+                    }),
+                blueAdvanced,
+              ]),
             ],
           ),
         ),
@@ -166,29 +155,22 @@ class AppHomePage extends StatelessWidget {
       bottomNavigationBar: Container(
         color: Colors.indigo,
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
-
         child: Row(
           children: <Widget>[
-
             FlatSwitch(
-              width: 12,
-              height: 8,
-              imageColor: Colors.yellow,
-              T: Icons.cloud_queue_sharp,
-              F: Icons.cloud_off_sharp,
-              onAction: () {
-              }
-            ),
+                width: 12,
+                height: 8,
+                imageColor: Colors.yellow,
+                T: Icons.cloud_queue_sharp,
+                F: Icons.cloud_off_sharp,
+                onAction: () {}),
             FlatSwitch(
                 width: 12,
                 height: 8,
                 imageColor: Colors.orangeAccent,
-                T: Icons.cloud_sharp,
-                F: Icons.cloudy_snowing,
-                onAction: () {
-                }
-            ),
-
+                T: Icons.lock_open_sharp,
+                F: Icons.lock_outline_sharp,
+                onAction: () {}),
             FlatAdvancedSwitch(
                 width: 12,
                 height: 8,
@@ -196,12 +178,10 @@ class AppHomePage extends StatelessWidget {
                 imageTColor: Colors.white70,
                 T: Icons.diamond_outlined,
                 F: Icons.diamond_sharp,
-                onAction: () {
-                }
+                onAction: () {}),
+            const SizedBox(
+              width: 32,
             ),
-
-            const SizedBox(width: 32,),
-
             FlatAdvancedRoundedSwitch(
                 width: 12,
                 height: 8,
@@ -212,12 +192,24 @@ class AppHomePage extends StatelessWidget {
                 imageTColor: Colors.cyan,
                 T: Icons.done_all_sharp,
                 F: Icons.done_sharp,
-                onAction: () {
-                }
+                onAction: () {}),
+            const SizedBox(
+              width: 8,
             ),
-
-            const SizedBox(width: 8,),
-
+            FlatAdvancedRoundedSwitch(
+                width: 12,
+                height: 8,
+                borderWidth: 0.2,
+                borderFColor: Colors.lightGreen,
+                borderTColor: Colors.lightGreenAccent,
+                imageFColor: Colors.lightGreenAccent,
+                imageTColor: Colors.lightGreen,
+                T: Icons.eco_outlined,
+                F: Icons.eco_sharp,
+                onAction: () {}),
+            const SizedBox(
+              width: 8,
+            ),
             FlatRoundedSwitch(
                 width: 12,
                 height: 8,
@@ -227,9 +219,7 @@ class AppHomePage extends StatelessWidget {
                 imageColor: Colors.redAccent,
                 T: Icons.deblur_outlined,
                 F: Icons.deblur_sharp,
-                onAction: () {
-                }
-            ),
+                onAction: () {}),
           ],
         ),
       ),
@@ -239,9 +229,9 @@ class AppHomePage extends StatelessWidget {
   void onStartStop(final IClick iClick) {
     _startStop = !_startStop;
     if (_startStop) {
-      obtain.start(iClick.click);
+      periodicAction.start(iClick.click);
     } else {
-      obtain.stop();
+      periodicAction.stop();
     }
   }
 }
