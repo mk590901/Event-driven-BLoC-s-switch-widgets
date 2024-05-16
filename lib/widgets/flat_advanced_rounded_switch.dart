@@ -45,7 +45,7 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
     this.borderFColor = Colors.black,
     this.borderDColor = Colors.black,
     this.borderUColor = Colors.black,
-    this.canvasTColor = Colors.black12,
+    this.canvasTColor = Colors.transparent,
     this.canvasFColor = Colors.transparent,
     this.canvasDColor = Colors.black26,
     this.canvasUColor = Colors.black26,

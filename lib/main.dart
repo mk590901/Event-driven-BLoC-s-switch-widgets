@@ -163,6 +163,76 @@ class AppHomePage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Container(
+        color: Colors.indigo,
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+
+        child: Row(
+          children: <Widget>[
+
+            FlatSwitch(
+              width: 12,
+              height: 8,
+              imageColor: Colors.yellow,
+              T: Icons.cloud_queue_sharp,
+              F: Icons.cloud_off_sharp,
+              onAction: () {
+              }
+            ),
+            FlatSwitch(
+                width: 12,
+                height: 8,
+                imageColor: Colors.orangeAccent,
+                T: Icons.cloud_sharp,
+                F: Icons.cloudy_snowing,
+                onAction: () {
+                }
+            ),
+
+            FlatAdvancedSwitch(
+                width: 12,
+                height: 8,
+                imageFColor: Colors.white30,
+                imageTColor: Colors.white70,
+                T: Icons.diamond_outlined,
+                F: Icons.diamond_sharp,
+                onAction: () {
+                }
+            ),
+
+            const SizedBox(width: 32,),
+
+            FlatAdvancedRoundedSwitch(
+                width: 12,
+                height: 8,
+                borderWidth: 0.2,
+                borderFColor: Colors.cyanAccent,
+                borderTColor: Colors.cyan,
+                imageFColor: Colors.cyanAccent,
+                imageTColor: Colors.cyan,
+                T: Icons.done_all_sharp,
+                F: Icons.done_sharp,
+                onAction: () {
+                }
+            ),
+
+            const SizedBox(width: 8,),
+
+            FlatRoundedSwitch(
+                width: 12,
+                height: 8,
+                borderWidth: 0.2,
+                borderRadius: 4,
+                borderColor: Colors.redAccent,
+                imageColor: Colors.redAccent,
+                T: Icons.deblur_outlined,
+                F: Icons.deblur_sharp,
+                onAction: () {
+                }
+            ),
+          ],
+        ),
+      ),
     );
   }
 
