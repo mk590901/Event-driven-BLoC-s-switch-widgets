@@ -1,4 +1,4 @@
-# BLoC Switches
+![switch_4_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/7bf92519-254a-4d6e-9b22-155026d33226)# BLoC Switches
 
 A new Flutter project.
 
@@ -10,7 +10,8 @@ This project is a starting point for a Flutter application.
 ![switch_4_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/1c9bf663-b1d4-4287-a88c-9e5db740eb77)
 
 ## State machine II
-![Uploading switch_4_states.svg…]()
+
+
 
 ## Movie
 
