@@ -20,6 +20,8 @@ class FlatSwitch extends StatelessWidget implements IClick {
 
   late GestureDetector gestureDetector;
 
+  late SwitchBloc switchBloc;
+
   FlatSwitch({
     super.key,
     required this.width,
@@ -36,11 +38,23 @@ class FlatSwitch extends StatelessWidget implements IClick {
     gestureDetector.onTap?.call();
   }
 
+  void reset() {
+    try {
+      switchBloc.add(Reset());
+    }
+    catch(exception) {
+      debugPrint ("******* error *******");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider<SwitchBloc>(
-      create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
+      create: (BuildContext context) {
+          switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
+          return switchBloc;
+        },
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
         gestureDetector = GestureDetector(
           onTap: () {

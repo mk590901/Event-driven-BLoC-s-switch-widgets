@@ -93,14 +93,20 @@ class SwitchHomePage extends StatelessWidget {
     FlatAdvancedRoundedSwitch blueAdvanced = FlatAdvancedRoundedSwitch(
         width: 20,
         height: 16,
-        borderFColor: Colors.blueGrey,
-        borderDColor: Colors.amberAccent,
-        borderUColor: Colors.redAccent,
-        imageFColor: Colors.blueGrey,
+        borderWidth: 0.5,
+        canvasFColor: Colors.blue,
+        canvasTColor: Colors.amberAccent,
+        borderFColor: Colors.white30,
+        borderTColor: Colors.redAccent,
+        borderDColor: Colors.cyanAccent,
+        borderUColor: Colors.cyan,
+        imageFColor: Colors.white,
+        imageTColor: Colors.red,
         T: Icons.access_alarm,
         F: Icons.access_time,
         onAction: () {
-          purple.click();
+          //purple.click();
+          yellow.reset();
         });
 
     return Scaffold(
@@ -186,9 +192,9 @@ class SwitchHomePage extends StatelessWidget {
                 width: 12,
                 height: 8,
                 borderWidth: 0.2,
-                borderFColor: Colors.cyanAccent,
+                borderFColor: Colors.white,
                 borderTColor: Colors.cyan,
-                imageFColor: Colors.cyanAccent,
+                imageFColor: Colors.white,
                 imageTColor: Colors.cyan,
                 T: Icons.done_all_sharp,
                 F: Icons.done_sharp,
@@ -200,8 +206,8 @@ class SwitchHomePage extends StatelessWidget {
                 width: 12,
                 height: 8,
                 borderWidth: 0.2,
-                borderFColor: Colors.lightGreen,
-                borderTColor: Colors.lightGreenAccent,
+                borderFColor: Colors.lightGreenAccent,
+                borderTColor: Colors.lightGreen,
                 imageFColor: Colors.lightGreenAccent,
                 imageTColor: Colors.lightGreen,
                 T: Icons.eco_outlined,
