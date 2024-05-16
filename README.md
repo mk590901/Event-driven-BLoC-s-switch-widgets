@@ -1,4 +1,4 @@
-![switch_4_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/1c9bf663-b1d4-4287-a88c-9e5db740eb77)# BLoC Switches
+# BLoC Switches
 
 A new Flutter project.
 
@@ -7,7 +7,7 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 ## State machine I
-![Uploading switch_2_states.svg…]()
+![switch_4_states](https://github.com/mk590901/BLoC-Switches/assets/125393245/1c9bf663-b1d4-4287-a88c-9e5db740eb77)
 
 ## State machine II
 ![Uploading switch_4_states.svg…]()
