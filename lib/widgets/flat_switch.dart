@@ -73,7 +73,8 @@ class FlatSwitch extends StatelessWidget implements IClick {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider<SwitchBloc>(
-      create: (BuildContext context) {
+      //create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
+      create: (_) {
           switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
           return switchBloc;
         },

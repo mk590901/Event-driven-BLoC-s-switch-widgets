@@ -79,7 +79,7 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
     double? borderWidth_ = w_(borderWidth);
     return BlocProvider<SwitchBloc>(
       //create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
-      create: (BuildContext context) {
+      create: (_) {
         switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
         return switchBloc;
       },
