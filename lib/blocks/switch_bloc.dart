@@ -16,6 +16,12 @@ class SwitchBloc extends Bloc<Event, SwitchState> {
     on<Click>((event, emit) {
       done(event, emit);
     });
+    on<Enable>((event, emit) {
+      done(event, emit);
+    });
+    on<Disable>((event, emit) {
+      done(event, emit);
+    });
   }
 
   void done(Event event, Emitter<SwitchState> emit) {

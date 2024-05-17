@@ -104,9 +104,12 @@ class SwitchHomePage extends StatelessWidget {
         imageTColor: Colors.red,
         T: Icons.access_alarm,
         F: Icons.access_time,
-        onAction: () {
-          //purple.click();
-          yellow.reset();
+        onDownAction: () {
+          yellow.disable();
+        },
+        onUpAction: () {
+          yellow.enable();
+          purple.click();
         });
 
     return Scaffold(
@@ -198,7 +201,7 @@ class SwitchHomePage extends StatelessWidget {
                 imageTColor: Colors.cyan,
                 T: Icons.done_all_sharp,
                 F: Icons.done_sharp,
-                onAction: () {}),
+                onUpAction: () {}),
             const SizedBox(
               width: 8,
             ),
@@ -212,7 +215,7 @@ class SwitchHomePage extends StatelessWidget {
                 imageTColor: Colors.lightGreen,
                 T: Icons.eco_outlined,
                 F: Icons.eco_sharp,
-                onAction: () {}),
+                onUpAction: () {}),
             const SizedBox(
               width: 8,
             ),

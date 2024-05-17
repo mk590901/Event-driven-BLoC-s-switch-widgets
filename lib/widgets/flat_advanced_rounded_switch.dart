@@ -31,7 +31,8 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
   final Color borderUColor;
   final IconData? T;
   final IconData? F;
-  final VoidCallback? onAction;
+  final VoidCallback? onUpAction;
+  final VoidCallback? onDownAction;
 
   late GestureDetector gestureDetector;
 
@@ -55,7 +56,8 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
     this.imageUColor = Colors.black,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
-    this.onAction,
+    this.onUpAction,
+    this.onDownAction,
   });
 
   @override
@@ -75,11 +77,11 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
         gestureDetector = GestureDetector(
           onTapDown: (details) {
             context.read<SwitchAdvancedBloc>().add(Down(uuid));
-            //onAction?.call();
+            onDownAction?.call();
           },
           onTapUp: (details) {
             context.read<SwitchAdvancedBloc>().add(Up(uuid));
-            onAction?.call();
+            onUpAction?.call();
           },
           onTapCancel: () {
             context.read<SwitchAdvancedBloc>().add(Up(uuid));

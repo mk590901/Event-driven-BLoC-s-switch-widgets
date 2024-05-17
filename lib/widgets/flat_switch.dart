@@ -12,6 +12,8 @@ class FlatSwitch extends StatelessWidget implements IClick {
 
   final Color canvasColor;
   final Color imageColor;
+  final Color canvasDisabledColor;
+  final Color imageDisabledColor;
   final double width;
   final double height;
   final IconData? T;
@@ -28,6 +30,8 @@ class FlatSwitch extends StatelessWidget implements IClick {
     required this.height,
     this.canvasColor = Colors.transparent,
     this.imageColor = Colors.black,
+    this.canvasDisabledColor = Colors.black12,
+    this.imageDisabledColor = Colors.black26,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
     this.onAction,
@@ -43,7 +47,25 @@ class FlatSwitch extends StatelessWidget implements IClick {
       switchBloc.add(Reset());
     }
     catch(exception) {
-      debugPrint ("******* error *******");
+      debugPrint ("******* reset error *******");
+    }
+  }
+
+  void enable() {
+    try {
+      switchBloc.add(Enable());
+    }
+    catch(exception) {
+      debugPrint ("******* enable error *******");
+    }
+  }
+
+  void disable() {
+    try {
+      switchBloc.add(Disable());
+    }
+    catch(exception) {
+      debugPrint ("******* disable error *******");
     }
   }
 
@@ -64,15 +86,63 @@ class FlatSwitch extends StatelessWidget implements IClick {
           child: Container(
             width: w_(width),
             height: h_(height),
-            color: canvasColor,
+            color: getCanvasColor(state.state()),
             child: Center(
-              child: Icon(state.state() == SwitchStates.off ? F : T,
-                  size: h_(height * 0.95), color: imageColor),
+              child: Icon(getIcon(state.state()),
+                  size: h_(height * 0.95), color: getIconColor(state.state())),
             ),
           ),
         );
         return gestureDetector;
       }),
     );
+  }
+
+  IconData? getIcon (SwitchStates state) {
+    IconData? result = F;
+    switch(state) {
+      case SwitchStates.off:
+      case SwitchStates.disabled_off:
+        result = F;
+        break;
+      case SwitchStates.on:
+      case SwitchStates.disabled_on:
+        result = T;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color? getIconColor (SwitchStates state) {
+    Color? result = imageColor;
+    switch(state) {
+      case SwitchStates.off:
+      case SwitchStates.on:
+        result = imageColor;
+        break;
+      case SwitchStates.disabled_off:
+      case SwitchStates.disabled_on:
+        result = imageDisabledColor;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color? getCanvasColor (SwitchStates state) {
+    Color? result = canvasColor;
+    switch(state) {
+      case SwitchStates.off:
+      case SwitchStates.on:
+        result = canvasColor;
+        break;
+      case SwitchStates.disabled_off:
+      case SwitchStates.disabled_on:
+        result = canvasDisabledColor;
+        break;
+      default:
+    }
+    return result;
   }
 }

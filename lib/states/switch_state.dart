@@ -1,4 +1,4 @@
-enum SwitchStates { off, on }
+enum SwitchStates { off, on, disabled_off, disabled_on }
 
 int state_(SwitchStates state) {
   return state.index;

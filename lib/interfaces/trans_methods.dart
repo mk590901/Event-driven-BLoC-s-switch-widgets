@@ -35,3 +35,31 @@ class OnUp implements ITransitionMethod {
   }
 }
 
+class OnDisableOff implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnDisableOff $data");
+  }
+}
+
+class OnDisableOn implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnDisableOn $data");
+  }
+}
+
+class OnEnableOff implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnEnableOff $data");
+  }
+}
+
+class OnEnableOn implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnEnableOn $data");
+  }
+}
+
