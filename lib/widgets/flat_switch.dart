@@ -11,9 +11,9 @@ class FlatSwitch extends StatelessWidget implements IClick {
   final String uuid = const Uuid().v4().toString();
 
   final Color canvasColor;
-  final Color imageColor;
+  final Color iconColor;
   final Color canvasDisabledColor;
-  final Color imageDisabledColor;
+  final Color iconDisabledColor;
   final double width;
   final double height;
   final IconData? T;
@@ -29,9 +29,9 @@ class FlatSwitch extends StatelessWidget implements IClick {
     required this.width,
     required this.height,
     this.canvasColor = Colors.transparent,
-    this.imageColor = Colors.black,
+    this.iconColor = Colors.black,
     this.canvasDisabledColor = Colors.black12,
-    this.imageDisabledColor = Colors.black26,
+    this.iconDisabledColor = Colors.black26,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
     this.onAction,
@@ -115,15 +115,15 @@ class FlatSwitch extends StatelessWidget implements IClick {
   }
 
   Color? getIconColor (SwitchStates state) {
-    Color? result = imageColor;
+    Color? result = iconColor;
     switch(state) {
       case SwitchStates.off:
       case SwitchStates.on:
-        result = imageColor;
+        result = iconColor;
         break;
       case SwitchStates.disabled_off:
       case SwitchStates.disabled_on:
-        result = imageDisabledColor;
+        result = iconDisabledColor;
         break;
       default:
     }

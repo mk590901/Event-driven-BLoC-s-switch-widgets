@@ -64,14 +64,14 @@ class SwitchHomePage extends StatelessWidget {
 
     FlatSwitch yellow = FlatSwitch(
       canvasColor: Colors.deepOrangeAccent,
-      imageColor: Colors.yellow,
+      iconColor: Colors.yellow,
       width: 20,
       height: 16,
     );
 
     FlatSwitch purple = FlatSwitch(
         canvasColor: Colors.deepPurple,
-        imageColor: Colors.blueGrey.shade100,
+        iconColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
         onAction: () {
@@ -80,7 +80,7 @@ class SwitchHomePage extends StatelessWidget {
 
     FlatRoundedSwitch blue = FlatRoundedSwitch(
         canvasColor: Colors.blueAccent,
-        imageColor: Colors.blueGrey.shade100,
+        iconColor: Colors.blueGrey.shade100,
         width: 20,
         height: 16,
         borderColor: Colors.white,
@@ -111,6 +111,17 @@ class SwitchHomePage extends StatelessWidget {
           yellow.enable();
           purple.click();
         });
+
+    FlatRoundedSwitch redRoundedBottom = FlatRoundedSwitch(
+        width: 12,
+        height: 8,
+        borderWidth: 0.2,
+        borderRadius: 4,
+        borderColor: Colors.redAccent,
+        iconColor: Colors.redAccent,
+        T: Icons.deblur_outlined,
+        F: Icons.deblur_sharp,
+        onAction: () {});
 
     return Scaffold(
       backgroundColor: Colors.white70,
@@ -169,14 +180,14 @@ class SwitchHomePage extends StatelessWidget {
             FlatSwitch(
                 width: 12,
                 height: 8,
-                imageColor: Colors.yellow,
+                iconColor: Colors.yellow,
                 T: Icons.cloud_queue_sharp,
                 F: Icons.cloud_off_sharp,
                 onAction: () {}),
             FlatSwitch(
                 width: 12,
                 height: 8,
-                imageColor: Colors.orangeAccent,
+                iconColor: Colors.orangeAccent,
                 T: Icons.lock_open_sharp,
                 F: Icons.lock_outline_sharp,
                 onAction: () {}),
@@ -215,20 +226,27 @@ class SwitchHomePage extends StatelessWidget {
                 imageTColor: Colors.lightGreen,
                 T: Icons.eco_outlined,
                 F: Icons.eco_sharp,
-                onUpAction: () {}),
+                onDownAction: () {
+                  redRoundedBottom.disable();
+                },
+                onUpAction: () {
+                  redRoundedBottom.enable();
+                }),
             const SizedBox(
               width: 8,
             ),
-            FlatRoundedSwitch(
-                width: 12,
-                height: 8,
-                borderWidth: 0.2,
-                borderRadius: 4,
-                borderColor: Colors.redAccent,
-                imageColor: Colors.redAccent,
-                T: Icons.deblur_outlined,
-                F: Icons.deblur_sharp,
-                onAction: () {}),
+            redRoundedBottom,
+
+            // FlatRoundedSwitch(
+            //     width: 12,
+            //     height: 8,
+            //     borderWidth: 0.2,
+            //     borderRadius: 4,
+            //     borderColor: Colors.redAccent,
+            //     imageColor: Colors.redAccent,
+            //     T: Icons.deblur_outlined,
+            //     F: Icons.deblur_sharp,
+            //     onAction: () {}),
           ],
         ),
       ),

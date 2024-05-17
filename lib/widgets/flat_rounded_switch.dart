@@ -11,8 +11,10 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
   final String uuid = const Uuid().v4().toString();
 
   final Color canvasColor;
-  final Color imageColor;
+  final Color iconColor;
   final Color borderColor;
+  final Color canvasDisabledColor;
+  final Color iconDisabledColor;
   final double width;
   final double height;
   final double borderRadius;
@@ -23,6 +25,8 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
 
   late GestureDetector gestureDetector;
 
+  late SwitchBloc switchBloc;
+
   FlatRoundedSwitch({
     super.key,
     required this.width,
@@ -31,7 +35,9 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
     this.borderWidth = 1,
     this.borderColor = Colors.black,
     this.canvasColor = Colors.transparent,
-    this.imageColor = Colors.black,
+    this.iconColor = Colors.black,
+    this.canvasDisabledColor = Colors.black12,
+    this.iconDisabledColor = Colors.black26,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
     this.onAction,
@@ -42,13 +48,41 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
     gestureDetector.onTap?.call();
   }
 
+  void reset() {
+    try {
+      switchBloc.add(Reset());
+    } catch (exception) {
+      debugPrint("******* reset error *******");
+    }
+  }
+
+  void enable() {
+    try {
+      switchBloc.add(Enable());
+    } catch (exception) {
+      debugPrint("******* enable error *******");
+    }
+  }
+
+  void disable() {
+    try {
+      switchBloc.add(Disable());
+    } catch (exception) {
+      debugPrint("******* disable error *******");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     double? borderRadius_ = w_(borderRadius);
     double? borderWidth_ = w_(borderWidth);
     return BlocProvider<SwitchBloc>(
-      create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
+      //create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
+      create: (BuildContext context) {
+        switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
+        return switchBloc;
+      },
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
         gestureDetector = GestureDetector(
           onTap: () {
@@ -59,18 +93,84 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
             width: w_(width),
             height: h_(height),
             decoration: BoxDecoration(
-              color: canvasColor,
+              color: getCanvasColor(state.state()),
               borderRadius: BorderRadius.circular(borderRadius_!),
-              border: Border.all(color: borderColor, width: borderWidth_!),
+              border: Border.all(
+                  color: /*borderColor*/ getBorderColor(state.state()),
+                  width: borderWidth_!),
             ),
             child: Center(
-              child: Icon(state.state() == SwitchStates.off ? F : T,
-                  size: h_(height * 0.8), color: imageColor),
-            ),
+                child: Icon(getIcon(state.state()),
+                    size: h_(height * 0.8),
+                    color: getIconColor(state.state()))),
           ),
         );
         return gestureDetector;
       }),
     );
+  }
+
+  IconData? getIcon(SwitchStates state) {
+    IconData? result = F;
+    switch (state) {
+      case SwitchStates.off:
+      case SwitchStates.disabled_off:
+        result = F;
+        break;
+      case SwitchStates.on:
+      case SwitchStates.disabled_on:
+        result = T;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color? getIconColor(SwitchStates state) {
+    Color? result = iconColor;
+    switch (state) {
+      case SwitchStates.off:
+      case SwitchStates.on:
+        result = iconColor;
+        break;
+      case SwitchStates.disabled_off:
+      case SwitchStates.disabled_on:
+        result = iconDisabledColor;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color? getCanvasColor(SwitchStates state) {
+    Color? result = canvasColor;
+    switch (state) {
+      case SwitchStates.off:
+      case SwitchStates.on:
+        result = canvasColor;
+        break;
+      case SwitchStates.disabled_off:
+      case SwitchStates.disabled_on:
+        result = canvasDisabledColor;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color getBorderColor(SwitchStates state) {
+    Color result = canvasColor;
+    switch (state) {
+      case SwitchStates.off:
+      case SwitchStates.on:
+        result = borderColor;
+        break;
+      case SwitchStates.disabled_off:
+      case SwitchStates.disabled_on:
+        result = canvasDisabledColor;
+        break;
+      default:
+    }
+    return result;
   }
 }
