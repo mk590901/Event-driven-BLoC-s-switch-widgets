@@ -1,4 +1,4 @@
-# BLoC Switches
+# Event driven BLoC's switch widgets
 
 A new Flutter project.
 
