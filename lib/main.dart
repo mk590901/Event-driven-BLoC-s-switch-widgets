@@ -90,7 +90,7 @@ class SwitchHomePage extends StatelessWidget {
           purple.click();
         });
 
-    FlatAdvancedRoundedSwitch blueAdvanced = FlatAdvancedRoundedSwitch(
+    FlatAdvancedRoundedSwitch blueRoundedAdvanced = FlatAdvancedRoundedSwitch(
         width: 20,
         height: 16,
         borderWidth: 0.5,
@@ -111,6 +111,28 @@ class SwitchHomePage extends StatelessWidget {
           yellow.enable();
           purple.click();
         });
+
+    FlatAdvancedSwitch blueAdvanced =FlatAdvancedSwitch(
+      width: 16,
+      height: 16,
+      canvasFColor: Colors.blueAccent,
+      canvasTColor: Colors.indigo,
+      canvasDColor: Colors.blueGrey,
+      canvasUColor: Colors.teal,
+      imageFColor: Colors.white,
+      imageTColor: Colors.white30,
+      imageDColor: Colors.amber,
+      imageUColor: Colors.amberAccent,
+      T: Icons.accessible_forward_sharp,
+      F: Icons.accessible_sharp,
+      onUpAction: () {
+        purple.enable();
+        blueRoundedAdvanced.click();
+      },
+      onDownAction: () {
+        purple.disable();
+      },
+    );
 
     FlatRoundedSwitch redRoundedBottom = FlatRoundedSwitch(
         width: 12,
@@ -150,23 +172,8 @@ class SwitchHomePage extends StatelessWidget {
                 height: 16,
               ),
               ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
-                FlatAdvancedSwitch(
-                    width: 16,
-                    height: 16,
-                    canvasFColor: Colors.blueAccent,
-                    canvasTColor: Colors.indigo,
-                    canvasDColor: Colors.blueGrey,
-                    canvasUColor: Colors.teal,
-                    imageFColor: Colors.white,
-                    imageTColor: Colors.white30,
-                    imageDColor: Colors.amber,
-                    imageUColor: Colors.amberAccent,
-                    T: Icons.accessible_forward_sharp,
-                    F: Icons.accessible_sharp,
-                    onAction: () {
-                      blueAdvanced.click();
-                    }),
                 blueAdvanced,
+                blueRoundedAdvanced,
               ]),
             ],
           ),
@@ -183,14 +190,18 @@ class SwitchHomePage extends StatelessWidget {
                 iconColor: Colors.yellow,
                 T: Icons.cloud_queue_sharp,
                 F: Icons.cloud_off_sharp,
-                onAction: () {}),
+                onAction: () {
+                  blueAdvanced.disable();
+                }),
             FlatSwitch(
                 width: 12,
                 height: 8,
                 iconColor: Colors.orangeAccent,
                 T: Icons.lock_open_sharp,
                 F: Icons.lock_outline_sharp,
-                onAction: () {}),
+                onAction: () {
+                  blueAdvanced.enable();
+                }),
             FlatAdvancedSwitch(
                 width: 12,
                 height: 8,
@@ -198,7 +209,7 @@ class SwitchHomePage extends StatelessWidget {
                 imageTColor: Colors.white70,
                 T: Icons.diamond_outlined,
                 F: Icons.diamond_sharp,
-                onAction: () {}),
+                onUpAction: () {}),
             const SizedBox(
               width: 32,
             ),

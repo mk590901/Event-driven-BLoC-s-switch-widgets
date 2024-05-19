@@ -12,13 +12,23 @@ class SwitchAdvancedStateMachine extends BasicStateMachine {
   @override
   void create() {
     states_[state_(SwitchAdvancedStates.off)] = State([
+      Trans(Disable(), state_(SwitchAdvancedStates.disabled_off), OnDisableOff()),
       Trans(Reset(),  state_(SwitchAdvancedStates.off), OnNothing()),
       Trans(Down(),   state_(SwitchAdvancedStates.off2on), OnDown())
     ]);
 
     states_[state_(SwitchAdvancedStates.on)] = State([
+      Trans(Disable(), state_(SwitchAdvancedStates.disabled_on), OnDisableOn()),
       Trans(Reset(),  state_(SwitchAdvancedStates.off), OnNothing()),
       Trans(Down(),   state_(SwitchAdvancedStates.on2off), OnDown())
+    ]);
+
+    states_[state_(SwitchAdvancedStates.disabled_off)] = State([
+      Trans(Enable(), state_(SwitchAdvancedStates.off), OnEnableOff()),
+    ]);
+
+    states_[state_(SwitchAdvancedStates.disabled_on)] = State([
+      Trans(Enable(), state_(SwitchAdvancedStates.on), OnEnableOn()),
     ]);
 
     states_[state_(SwitchAdvancedStates.off2on)] = State([

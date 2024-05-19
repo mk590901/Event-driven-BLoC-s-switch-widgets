@@ -18,13 +18,18 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   final Color imageFColor;
   final Color imageDColor;
   final Color imageUColor;
+  final Color canvasDisabledColor;
+  final Color iconDisabledColor;
   final double width;
   final double height;
   final IconData? T;
   final IconData? F;
-  final VoidCallback? onAction;
+  final VoidCallback? onDownAction;
+  final VoidCallback? onUpAction;
 
   late GestureDetector gestureDetector;
+
+  late SwitchAdvancedBloc switchBloc;
 
   FlatAdvancedSwitch({
     super.key,
@@ -38,9 +43,12 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     this.imageFColor = Colors.black,
     this.imageDColor = Colors.black,
     this.imageUColor = Colors.black,
+    this.canvasDisabledColor = Colors.black12,
+    this.iconDisabledColor = Colors.black26,
     this.T = Icons.toggle_on_outlined,
     this.F = Icons.toggle_off_outlined,
-    this.onAction,
+    this.onUpAction,
+    this.onDownAction,
   });
 
   @override
@@ -48,32 +56,58 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     gestureDetector.onTap?.call();
   }
 
+  void reset() {
+    try {
+      switchBloc.add(Reset());
+    } catch (exception) {
+      debugPrint("******* reset error *******");
+    }
+  }
+
+  void enable() {
+    try {
+      switchBloc.add(Enable());
+    } catch (exception) {
+      debugPrint("******* enable error *******");
+    }
+  }
+
+  void disable() {
+    try {
+      switchBloc.add(Disable());
+    } catch (exception) {
+      debugPrint("******* disable error *******");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider<SwitchAdvancedBloc>(
-      create: (_) => SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off)),
+      //create: (_) => SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off)),
+      create: (_) {
+        switchBloc = SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off));
+        return switchBloc;
+      },
       child: BlocBuilder<SwitchAdvancedBloc, SwitchAdvancedState>(builder: (context, state) {
         gestureDetector = GestureDetector(
-          onTapDown: (details) {
+          onTapDown: (_) {
             context.read<SwitchAdvancedBloc>().add(Down(uuid));
-            //onAction?.call();
+            onDownAction?.call();
           },
-          onTapUp: (details) {
+          onTapUp: (_) {
             context.read<SwitchAdvancedBloc>().add(Up(uuid));
-            onAction?.call();
+            onUpAction?.call();
           },
           onTapCancel: () {
             context.read<SwitchAdvancedBloc>().add(Up(uuid));
-          }
-          ,
+          },
           child: Container(
             width: w_(width),
             height: h_(height),
-            color: canvasColor(state.state()),
+            color: getCanvasColor(state.state()),
             child: Center(
-              child: Icon(state.state() == SwitchAdvancedStates.off ? F : T,
-                  size: h_(height * iconSize(state.state())), color: iconColor(state.state())),
+              child: Icon(getIcon(state.state()),
+                  size: h_(height * iconSize(state.state())), color: getIconColor(state.state())),
             ),
           ),
         );
@@ -82,7 +116,7 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     );
   }
 
-  Color? iconColor(SwitchAdvancedStates state) {
+  Color? getIconColor(SwitchAdvancedStates state) {
     Color? result = imageFColor;
     switch(state) {
       case SwitchAdvancedStates.off:
@@ -97,12 +131,16 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
       case SwitchAdvancedStates.on2off:
         result = imageDColor;
         break;
+      case SwitchAdvancedStates.disabled_off:
+      case SwitchAdvancedStates.disabled_on:
+        result = iconDisabledColor;
+        break;
       default:
     }
     return result;
   }
 
-  num iconSize(SwitchAdvancedStates state) {
+  double iconSize(SwitchAdvancedStates state) {
     double result = 0.9;
     switch(state) {
       case SwitchAdvancedStates.off:
@@ -118,7 +156,23 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     return result;
   }
 
-  canvasColor(SwitchAdvancedStates state) {
+  IconData? getIcon(SwitchAdvancedStates state) {
+    IconData? result = F;
+    switch (state) {
+      case SwitchAdvancedStates.off:
+      case SwitchAdvancedStates.disabled_off:
+        result = F;
+        break;
+      case SwitchAdvancedStates.on:
+      case SwitchAdvancedStates.disabled_on:
+        result = T;
+        break;
+      default:
+    }
+    return result;
+  }
+
+  Color? getCanvasColor(SwitchAdvancedStates state) {
     Color? result = canvasFColor;
     switch(state) {
       case SwitchAdvancedStates.off:
@@ -132,6 +186,10 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
         break;
       case SwitchAdvancedStates.on2off:
         result = canvasDColor;
+        break;
+      case SwitchAdvancedStates.disabled_off:
+      case SwitchAdvancedStates.disabled_on:
+        result = canvasDisabledColor;
         break;
       default:
     }

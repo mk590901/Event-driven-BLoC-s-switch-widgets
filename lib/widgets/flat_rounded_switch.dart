@@ -96,7 +96,7 @@ class FlatRoundedSwitch extends StatelessWidget implements IClick {
               color: getCanvasColor(state.state()),
               borderRadius: BorderRadius.circular(borderRadius_!),
               border: Border.all(
-                  color: /*borderColor*/ getBorderColor(state.state()),
+                  color: getBorderColor(state.state()),
                   width: borderWidth_!),
             ),
             child: Center(
