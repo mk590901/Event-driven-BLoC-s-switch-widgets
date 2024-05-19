@@ -192,6 +192,7 @@ class SwitchHomePage extends StatelessWidget {
                 F: Icons.cloud_off_sharp,
                 onAction: () {
                   blueAdvanced.disable();
+                  blueRoundedAdvanced.disable();
                 }),
             FlatSwitch(
                 width: 12,
@@ -200,6 +201,7 @@ class SwitchHomePage extends StatelessWidget {
                 T: Icons.lock_open_sharp,
                 F: Icons.lock_outline_sharp,
                 onAction: () {
+                  blueRoundedAdvanced.enable();
                   blueAdvanced.enable();
                 }),
             FlatAdvancedSwitch(
