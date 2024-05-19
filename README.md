@@ -1,4 +1,4 @@
-# BLoC switches
+# BLoC Switches
 
 A new Flutter project.
 
@@ -11,7 +11,7 @@ This project is a starting point for a Flutter application.
 
 ## State machine II
 
-![switch_6_states_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f7170c92-a315-4c0f-9184-9c887b9b0ca5)# BLoC Switches
+![switch_6_states_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f7170c92-a315-4c0f-9184-9c887b9b0ca5)
 
 ## Movie
 
