@@ -16,7 +16,9 @@ This project is a starting point for a Flutter application.
 
 ## Movie
 
-https://github.com/mk590901/BLoC-Switches/assets/125393245/9d196107-1c6c-4107-88d9-7a6fb74e8a60
+https://github.com/mk590901/BLoC-Switches/assets/125393245/94bde50d-fb7a-4a98-9264-d2f1e2123b41
+
+
 
 
 
