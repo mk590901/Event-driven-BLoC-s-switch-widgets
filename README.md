@@ -8,6 +8,7 @@ This project is a starting point for a Flutter application.
 
 ## State machine I
 
+![switch_2_state_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f1dbb008-ab93-4138-bc65-675096c14c6d)
 
 ## State machine II
 
