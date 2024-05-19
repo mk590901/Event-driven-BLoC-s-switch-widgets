@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
@@ -14,10 +16,10 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   final Color canvasFColor;
   final Color canvasDColor;
   final Color canvasUColor;
-  final Color imageTColor;
-  final Color imageFColor;
-  final Color imageDColor;
-  final Color imageUColor;
+  final Color iconTColor;
+  final Color iconFColor;
+  final Color iconDColor;
+  final Color iconUColor;
   final Color canvasDisabledColor;
   final Color iconDisabledColor;
   final double width;
@@ -39,10 +41,10 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
     this.canvasFColor = Colors.transparent,
     this.canvasDColor = Colors.black26,
     this.canvasUColor = Colors.black26,
-    this.imageTColor = Colors.black,
-    this.imageFColor = Colors.black,
-    this.imageDColor = Colors.black,
-    this.imageUColor = Colors.black,
+    this.iconTColor = Colors.black,
+    this.iconFColor = Colors.black,
+    this.iconDColor = Colors.black,
+    this.iconUColor = Colors.black,
     this.canvasDisabledColor = Colors.black12,
     this.iconDisabledColor = Colors.black26,
     this.T = Icons.toggle_on_outlined,
@@ -53,7 +55,9 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
 
   @override
   void click() {
-    gestureDetector.onTap?.call();
+    //gestureDetector.onTap?.call();
+    gestureDetector.onTapDown?.call(TapDownDetails());
+    gestureDetector.onTapUp?.call(TapUpDetails(kind: PointerDeviceKind.touch));
   }
 
   void reset() {
@@ -79,6 +83,7 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
       debugPrint("******* disable error *******");
     }
   }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -117,19 +122,19 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
   }
 
   Color? getIconColor(SwitchAdvancedStates state) {
-    Color? result = imageFColor;
+    Color? result = iconFColor;
     switch(state) {
       case SwitchAdvancedStates.off:
-        result = imageFColor;
+        result = iconFColor;
         break;
       case SwitchAdvancedStates.on:
-        result = imageTColor;
+        result = iconTColor;
         break;
       case SwitchAdvancedStates.off2on:
-        result = imageUColor;
+        result = iconUColor;
         break;
       case SwitchAdvancedStates.on2off:
-        result = imageDColor;
+        result = iconDColor;
         break;
       case SwitchAdvancedStates.disabled_off:
       case SwitchAdvancedStates.disabled_on:
