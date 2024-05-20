@@ -4,9 +4,9 @@ The project contains several switch widgets built using __BLoC__ technology, all
 
 ## Introduction
 
-Two pairs of switches have been created, based on the processing of callbacks of GestureDetector. They differ in functionality:
-* first pair: FlatSwitch and FlatRoundedSwitch react to clicks and process onTap callback,
-* second: FlatAdvancedSwitch and FlatAdvancedRoundedSwitch handle callbacs onTapDown and onTapUp.
+Two pairs of switches have been created, based on the processing of callbacks of __GestureDetector__. They differ in functionality:
+* first pair: __FlatSwitch__ and __FlatRoundedSwitch__ react to clicks and process __onTap__ callback,
+* second: __FlatAdvancedSwitch__ and __FlatAdvancedRoundedSwitch__ handle callbacs __onTapDown__ and __onTapUp__.
 
 ## State machine I
 
