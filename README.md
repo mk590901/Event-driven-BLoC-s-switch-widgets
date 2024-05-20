@@ -1,6 +1,6 @@
 # Event driven BLoC's switch widgets
 
-A new Flutter project.
+The project contains several switch widgets built using __BLoC__ technology, allowed to minimize the scene rendering when updating the GUI.
 
 ## Introduction
 
