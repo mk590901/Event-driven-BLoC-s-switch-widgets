@@ -8,11 +8,11 @@ Two pairs of switches have been created, based on the processing of callbacks of
 * first pair: __FlatSwitch__ and __FlatRoundedSwitch__ react to clicks and process __onTap__ callback,
 * second: __FlatAdvancedSwitch__ and __FlatAdvancedRoundedSwitch__ handle callbacs __onTapDown__ and __onTapUp__.
 
-## State machine I
+### State machine I
 
 ![switch_2_state_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f1dbb008-ab93-4138-bc65-675096c14c6d)
 
-## State machine II
+### State machine II
 
 ![switch_6_states_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f7170c92-a315-4c0f-9184-9c887b9b0ca5)
 
