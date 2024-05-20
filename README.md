@@ -4,7 +4,9 @@ The project contains several switch widgets built using __BLoC__ technology, all
 
 ## Introduction
 
-This project is a starting point for a Flutter application.
+Two pairs of switches have been created, based on the processing of callbacks of GestureDetector. They differ in functionality:
+* first pair: FlatSwitch and FlatRoundedSwitch react to clicks and process onTap callback,
+* second: FlatAdvancedSwitch and FlatAdvancedRoundedSwitch handle callbacs onTapDown and onTapUp.
 
 ## State machine I
 
