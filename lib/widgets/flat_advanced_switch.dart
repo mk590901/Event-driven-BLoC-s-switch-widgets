@@ -55,7 +55,6 @@ class FlatAdvancedSwitch extends StatelessWidget implements IClick {
 
   @override
   void click() {
-    //gestureDetector.onTap?.call();
     gestureDetector.onTapDown?.call(TapDownDetails());
     gestureDetector.onTapUp?.call(TapUpDetails(kind: PointerDeviceKind.touch));
   }
