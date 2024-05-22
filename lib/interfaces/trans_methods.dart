@@ -63,3 +63,31 @@ class OnEnableOn implements ITransitionMethod {
   }
 }
 
+class OnDisable implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnDisable $data");
+  }
+}
+
+class OnEnable implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnEnable $data");
+  }
+}
+
+class OnPress implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnPress $data");
+  }
+}
+
+class OnUnpress implements ITransitionMethod {
+  @override
+  void execute([var data]) {
+    print("@OnUnpress $data");
+  }
+}
+
