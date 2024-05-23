@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'periodic_action.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
+import 'widgets/flat_rounded_button.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
@@ -134,6 +135,29 @@ class SwitchHomePage extends StatelessWidget {
       },
     );
 
+    FlatRoundedButton blueRoundedButton = FlatRoundedButton(
+      width: 24,
+      height: 16,
+      canvasColor: Colors.blueAccent,
+      canvasDisabledColor: Colors.blueGrey,
+      canvasPressedColor: Colors.indigo,
+      iconColor: Colors.limeAccent,
+      iconDisabledColor: Colors.white70,
+      iconPressedColor: Colors.redAccent,
+      iconData: Icons.account_circle_outlined,
+      iconDataPressed: Icons.account_circle_sharp,
+      borderColor: Colors.limeAccent,
+      borderPressedColor: Colors.redAccent,
+      borderDisabledColor: Colors.blueGrey,
+      onUpAction: () {
+        // purple.enable();
+        // blueRoundedAdvanced.click();
+      },
+      onDownAction: () {
+//        purple.disable();
+      },
+    );
+
     FlatRoundedSwitch redRoundedBottom = FlatRoundedSwitch(
         width: 12,
         height: 8,
@@ -174,6 +198,7 @@ class SwitchHomePage extends StatelessWidget {
               ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
                 blueAdvanced,
                 blueRoundedAdvanced,
+                blueRoundedButton,
               ]),
             ],
           ),
