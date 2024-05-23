@@ -24,6 +24,7 @@ The logic of widgets is subject to the logic of state machines built into the co
 
 ### State machine III (__FlatButton__ and __FlatRoundedButton__ classes)
 
+![button_3_state](https://github.com/mk590901/Event-driven-BLoC-s-switch-widgets/assets/125393245/1c18e26a-0713-4afc-9c65-2893ad8deb60)
 
 ## Movie
 
