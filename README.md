@@ -1,12 +1,13 @@
-# Event driven BLoC's switch widgets
+# Event driven BLoC's switch and button widgets
 
-The project contains several switch widgets built using __BLoC__ technology, allowed to minimize the scene rendering when updating the GUI.
+The project contains several switch and button widgets built using __BLoC__ technology, allowed to minimize the scene rendering when updating the GUI.
 
 ## Introduction
 
-Two pairs of switches have been created, based on the processing of callbacks of __GestureDetector__. They differ in functionality:
+Three pairs of switches and pair of buttons have been created, based on the processing of callbacks of __GestureDetector__. They differ in functionality:
 * first pair: __FlatSwitch__ and __FlatRoundedSwitch__ react to clicks and process __onTap__ callback,
-* second: __FlatAdvancedSwitch__ and __FlatAdvancedRoundedSwitch__ handle callbacks __onTapDown__ and __onTapUp__.
+* second: __FlatAdvancedSwitch__ and __FlatAdvancedRoundedSwitch__ handle callbacks __onTapDown__ and __onTapUp__,
+* third: __FlatButton__ and __FlatRoundedButton__ handle callbacks __onTapDown__ and __onTapUp__
 
 ## Widgets brief description
 
@@ -20,6 +21,9 @@ The logic of widgets is subject to the logic of state machines built into the co
 ### State machine II (__FlatAdvancedSwitch__ and __FlatAdvancedRoundedSwitch__ classes)
 
 ![switch_6_states_a](https://github.com/mk590901/BLoC-Switches/assets/125393245/f7170c92-a315-4c0f-9184-9c887b9b0ca5)
+
+### State machine III (__FlatButton__ and __FlatRoundedButton__ classes)
+
 
 ## Movie
 
