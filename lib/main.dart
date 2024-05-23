@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'periodic_action.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
+import 'widgets/flat_button.dart';
 import 'widgets/flat_rounded_button.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
@@ -150,11 +151,30 @@ class SwitchHomePage extends StatelessWidget {
       borderPressedColor: Colors.redAccent,
       borderDisabledColor: Colors.blueGrey,
       onUpAction: () {
-        // purple.enable();
-        // blueRoundedAdvanced.click();
+        purple.enable();
+        blueRoundedAdvanced.click();
       },
       onDownAction: () {
-//        purple.disable();
+        purple.disable();
+      },
+    );
+
+    FlatButton blueButton = FlatButton(
+      width: 24,
+      height: 16,
+      canvasColor: Colors.pinkAccent,
+      canvasDisabledColor: Colors.blueGrey,
+      canvasPressedColor: Colors.indigo,
+      iconColor: Colors.blue,
+      iconDisabledColor: Colors.black12,
+      iconPressedColor: Colors.redAccent,
+      iconData: Icons.agriculture_outlined,
+      iconDataPressed: Icons.agriculture_sharp,
+      onUpAction: () {
+        blueRoundedButton.enable();
+      },
+      onDownAction: () {
+        blueRoundedButton.disable();
       },
     );
 
@@ -199,6 +219,7 @@ class SwitchHomePage extends StatelessWidget {
                 blueAdvanced,
                 blueRoundedAdvanced,
                 blueRoundedButton,
+                blueButton,
               ]),
             ],
           ),
