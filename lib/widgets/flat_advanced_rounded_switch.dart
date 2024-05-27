@@ -118,7 +118,7 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
             onUpAction?.call();
           },
           onTapCancel: () {
-            context.read<SwitchAdvancedBloc>().add(Up(uuid));
+            context.read<SwitchAdvancedBloc>().add(Reset());
           }
           ,
           child: Container(

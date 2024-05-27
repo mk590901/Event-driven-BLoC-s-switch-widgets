@@ -9,7 +9,7 @@ class SwitchBloc extends Bloc<Event, SwitchState> {
   BasicStateMachine? _stateMachine;
 
   SwitchBloc(super.state) {
-    _stateMachine = SwitchStateMachine(state_(SwitchStates.off));
+    _stateMachine = SwitchStateMachine(SwitchState.state_(SwitchStates.off));
     on<Reset>((event, emit) {
       done(event, emit);
     });

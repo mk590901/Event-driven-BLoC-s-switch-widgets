@@ -1,10 +1,15 @@
 enum ButtonStates { ready, pressed, disabled }
 
-int state_(ButtonStates state) {
-  return state.index;
-}
+// int state_(ButtonStates state) {
+//   return state.index;
+// }
 
 class ButtonState {
+
+  static int state_(ButtonStates state) {
+    return state.index;
+  }
+
   final ButtonStates _state;
   String? _data;
 

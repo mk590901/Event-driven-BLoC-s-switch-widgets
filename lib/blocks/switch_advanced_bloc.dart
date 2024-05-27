@@ -9,7 +9,7 @@ class SwitchAdvancedBloc extends Bloc<Event, SwitchAdvancedState> {
   BasicStateMachine? _stateMachine;
 
   SwitchAdvancedBloc(super.state) {
-    _stateMachine = SwitchAdvancedStateMachine(state_(SwitchAdvancedStates.off));
+    _stateMachine = SwitchAdvancedStateMachine(SwitchAdvancedState.state_(SwitchAdvancedStates.off));
     on<Reset>((event, emit) {
       done(event, emit);
     });

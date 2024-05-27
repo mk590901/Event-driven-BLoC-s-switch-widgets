@@ -9,7 +9,7 @@ class ButtonBloc extends Bloc<Event, ButtonState> {
   BasicStateMachine? _stateMachine;
 
   ButtonBloc(super.state) {
-    _stateMachine = ButtonStateMachine(state_(ButtonStates.ready));
+    _stateMachine = ButtonStateMachine(ButtonState.state_(ButtonStates.ready));
     on<Reset>((event, emit) {
       done(event, emit);
     });

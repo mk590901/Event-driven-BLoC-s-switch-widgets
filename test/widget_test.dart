@@ -58,20 +58,20 @@ void main() {
 
   test('ButtonStateMachine', () {
     BasicStateMachine?
-      stateMachine = ButtonStateMachine(state_(ButtonStates.ready));
-    expect(stateMachine.state(),state_(ButtonStates.ready));
+      stateMachine = ButtonStateMachine(ButtonState.state_(ButtonStates.ready));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.ready));
     stateMachine.dispatch(Disable());
-    expect(stateMachine.state(),state_(ButtonStates.disabled));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.disabled));
     stateMachine.dispatch(Enable());
-    expect(stateMachine.state(),state_(ButtonStates.ready));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.ready));
     stateMachine.dispatch(Down());
-    expect(stateMachine.state(),state_(ButtonStates.pressed));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.pressed));
     stateMachine.dispatch(Reset());
-    expect(stateMachine.state(),state_(ButtonStates.ready));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.ready));
     stateMachine.dispatch(Down());
-    expect(stateMachine.state(),state_(ButtonStates.pressed));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.pressed));
     stateMachine.dispatch(Up());
-    expect(stateMachine.state(),state_(ButtonStates.ready));
+    expect(stateMachine.state(),  ButtonState.state_(ButtonStates.ready));
 
   });
 

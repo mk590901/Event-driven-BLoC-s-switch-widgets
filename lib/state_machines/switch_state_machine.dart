@@ -11,24 +11,24 @@ class SwitchStateMachine extends BasicStateMachine {
 
   @override
   void create() {
-    states_[state_(SwitchStates.off)] = State([
-      Trans(Disable(), state_(SwitchStates.disabled_off), OnDisableOff()),
-      Trans(Reset(), state_(SwitchStates.off), OnNothing()),
-      Trans(Click(), state_(SwitchStates.on), OnTrue())
+    states_[SwitchState.state_(SwitchStates.off)] = State([
+      Trans(Disable(),  SwitchState.state_(SwitchStates.disabled_off), OnDisableOff()),
+      Trans(Reset(),    SwitchState.state_(SwitchStates.off), OnNothing()),
+      Trans(Click(),    SwitchState.state_(SwitchStates.on), OnTrue())
     ]);
 
-    states_[state_(SwitchStates.on)] = State([
-      Trans(Disable(), state_(SwitchStates.disabled_on), OnDisableOn()),
-      Trans(Reset(), state_(SwitchStates.off), OnNothing()),
-      Trans(Click(), state_(SwitchStates.off), OnFalse())
+    states_[SwitchState.state_(SwitchStates.on)] = State([
+      Trans(Disable(),  SwitchState.state_(SwitchStates.disabled_on), OnDisableOn()),
+      Trans(Reset(),    SwitchState.state_(SwitchStates.on),  OnNothing()),
+      Trans(Click(),    SwitchState.state_(SwitchStates.off), OnFalse())
     ]);
 
-    states_[state_(SwitchStates.disabled_off)] = State([
-      Trans(Enable(), state_(SwitchStates.off), OnEnableOff()),
+    states_[SwitchState.state_(SwitchStates.disabled_off)] = State([
+      Trans(Enable(),   SwitchState.state_(SwitchStates.off), OnEnableOff()),
     ]);
 
-    states_[state_(SwitchStates.disabled_on)] = State([
-      Trans(Enable(), state_(SwitchStates.on), OnEnableOn()),
+    states_[SwitchState.state_(SwitchStates.disabled_on)] = State([
+      Trans(Enable(),   SwitchState.state_(SwitchStates.on), OnEnableOn()),
     ]);
 
   }

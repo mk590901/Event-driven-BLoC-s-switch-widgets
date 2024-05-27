@@ -1,10 +1,10 @@
 enum SwitchStates { off, on, disabled_off, disabled_on }
 
-int state_(SwitchStates state) {
-  return state.index;
-}
-
 class SwitchState {
+  static int state_(SwitchStates state) {
+    return state.index;
+  }
+
   final SwitchStates _state;
   String? _data;
 
