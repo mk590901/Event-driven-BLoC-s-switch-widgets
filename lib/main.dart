@@ -7,6 +7,7 @@ import 'widgets/flat_rounded_button.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
+import 'widgets/flat_text_button.dart';
 
 void main() {
   runApp(const SwitchDemoApp());
@@ -159,7 +160,26 @@ class SwitchHomePage extends StatelessWidget {
       },
     );
 
-    FlatButton blueButton = FlatButton(
+    FlatTextButton textButton = FlatTextButton(
+      width: 32,
+      height: 12,
+      canvasColor: Colors.blueAccent,
+      canvasDisabledColor: Colors.blueGrey,
+      canvasPressedColor: Colors.indigo,
+      textColor: Colors.white,
+      textDisabledColor: Colors.limeAccent,
+      textPressedColor: Colors.white70,
+      fontSize: 14,
+      fontStyle: FontStyle.italic,
+      onUpAction: () {
+        blueRoundedButton.enable();
+      },
+      onDownAction: () {
+        blueRoundedButton.disable();
+      },
+    );
+
+    FlatButton pinkButton = FlatButton(
       width: 24,
       height: 16,
       canvasColor: Colors.pinkAccent,
@@ -172,9 +192,11 @@ class SwitchHomePage extends StatelessWidget {
       iconDataPressed: Icons.agriculture_sharp,
       onUpAction: () {
         blueRoundedButton.enable();
+        textButton.enable();
       },
       onDownAction: () {
         blueRoundedButton.disable();
+        textButton.disable();
       },
     );
 
@@ -219,7 +241,10 @@ class SwitchHomePage extends StatelessWidget {
                 blueAdvanced,
                 blueRoundedAdvanced,
                 blueRoundedButton,
-                blueButton,
+                pinkButton,
+              ]),
+              ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+                textButton,
               ]),
             ],
           ),
@@ -295,17 +320,6 @@ class SwitchHomePage extends StatelessWidget {
               width: 8,
             ),
             redRoundedBottom,
-
-            // FlatRoundedSwitch(
-            //     width: 12,
-            //     height: 8,
-            //     borderWidth: 0.2,
-            //     borderRadius: 4,
-            //     borderColor: Colors.redAccent,
-            //     imageColor: Colors.redAccent,
-            //     T: Icons.deblur_outlined,
-            //     F: Icons.deblur_sharp,
-            //     onAction: () {}),
           ],
         ),
       ),
