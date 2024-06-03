@@ -1,3 +1,4 @@
+import 'package:button_k_states/widgets/flat_text_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'periodic_action.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
@@ -160,6 +161,32 @@ class SwitchHomePage extends StatelessWidget {
       },
     );
 
+    FlatTextRoundedButton textRoundedButton = FlatTextRoundedButton(
+      width: 36,
+      height: 12,
+      canvasColor: Colors.blueAccent,
+      canvasDisabledColor: Colors.blueGrey,
+      canvasPressedColor: Colors.indigo,
+      textColor: Colors.limeAccent,
+      textDisabledColor: Colors.white70,
+      textPressedColor: Colors.white,
+      text: 'Dismiss',
+      textPressed: 'Dismiss!',
+      textDisabled: 'Out of order',
+      borderColor: Colors.white70,
+      borderPressedColor: Colors.white30,
+      borderDisabledColor: Colors.blueGrey,
+      borderWidth: 0.5,
+      borderRadius: 8,
+      onUpAction: () {
+        purple.enable();
+        blueRoundedAdvanced.click();
+      },
+      onDownAction: () {
+        purple.disable();
+      },
+    );
+
     FlatTextButton textButton = FlatTextButton(
       width: 32,
       height: 12,
@@ -173,9 +200,11 @@ class SwitchHomePage extends StatelessWidget {
       fontStyle: FontStyle.italic,
       onUpAction: () {
         blueRoundedButton.enable();
+        textRoundedButton.enable();
       },
       onDownAction: () {
         blueRoundedButton.disable();
+        textRoundedButton.disable();
       },
     );
 
@@ -245,6 +274,7 @@ class SwitchHomePage extends StatelessWidget {
               ]),
               ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
                 textButton,
+                textRoundedButton,
               ]),
             ],
           ),
