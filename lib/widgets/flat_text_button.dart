@@ -19,8 +19,8 @@ class FlatTextButton extends StatelessWidget implements IClick {
   final Color textColor;
   final Color textPressedColor;
   final Color textDisabledColor;
-  final String text;
-  final String textPressed;
+  late String text;
+  //final String textPressed;
   final String textDisabled;
   final double width;
   final double height;
@@ -41,7 +41,7 @@ class FlatTextButton extends StatelessWidget implements IClick {
     this.canvasPressedColor = Colors.transparent,
     this.canvasDisabledColor = Colors.black12,
     this.text = "text",
-    this.textPressed = "pressed",
+    //this.textPressed = "pressed",
     this.textDisabled = "disabled",
     this.textColor = Colors.black,
     this.textPressedColor = Colors.black,
@@ -82,13 +82,20 @@ class FlatTextButton extends StatelessWidget implements IClick {
     }
   }
 
+  void changeText(final String text) {
+    try {
+      this.text = text;
+      buttonBloc.add(ChangeText());
+    } catch (exception) {
+      debugPrint("******* change error *******");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BlocProvider<ButtonBloc>(
-      //create: (_) => SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off)),
       create: (_) {
-        //switchBloc = ButtonBloc(ButtonState(ButtonStates.ready));
         return buttonBloc;
       },
       child: BlocBuilder<ButtonBloc, ButtonState>(builder: (context, state) {
@@ -131,7 +138,7 @@ class FlatTextButton extends StatelessWidget implements IClick {
         result = text;
         break;
       case ButtonStates.pressed:
-        result = textPressed;
+        result = text;//textPressed;
         break;
       case ButtonStates.disabled:
         result = textDisabled;
