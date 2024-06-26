@@ -5,6 +5,24 @@ class FlatZoomSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Icon iconMinus = const Icon(
+      Icons.remove,
+      color: Colors.white,
+      size: 24.0,
+    );
+
+    Icon iconPlus = const Icon(
+      Icons.add,  //  add_outlined
+      color: Colors.white,
+      size: 24.0,
+    );
+
+    Text text = const Text(
+      '100',
+      style: TextStyle(fontSize: 14, color: Colors.white),
+    );
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.blue, // Background color of the Container
@@ -15,25 +33,14 @@ class FlatZoomSwitch extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.only(left: 8, right: 8, top: 4, bottom: 4), // Padding inside the container
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.remove,
-            color: Colors.white,
-            size: 24.0,
-          ),
-          SizedBox(width: 1), // Spacer
-          Text(
-            '100',
-            style: TextStyle(fontSize: 14, color: Colors.white),
-          ),
-          SizedBox(width: 1), // Spacer
-          Icon(
-            Icons.add,  //  add_outlined
-            color: Colors.white,
-            size: 24.0,
-          ),
+          iconMinus,
+          const SizedBox(width: 1), // Spacer
+          text,
+          const SizedBox(width: 1), // Spacer
+          iconPlus,
         ],
       ),
     );
