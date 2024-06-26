@@ -9,6 +9,7 @@ import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
 import 'widgets/flat_text_button.dart';
+import 'widgets/flat_zoom_switch.dart';
 
 void main() {
   runApp(const SwitchDemoApp());
@@ -276,6 +277,11 @@ class SwitchHomePage extends StatelessWidget {
                 textButton,
                 textRoundedButton,
               ]),
+
+              const ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+                FlatZoomSwitch(),
+              ]),
+
             ],
           ),
         ),
