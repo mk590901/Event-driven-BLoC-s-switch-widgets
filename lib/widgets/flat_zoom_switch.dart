@@ -68,9 +68,9 @@ class FlatZoomSwitch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           iconMinus,
-          const SizedBox(width: 1), // Spacer
+          //const SizedBox(width: 1), // Spacer
           text,
-          const SizedBox(width: 1), // Spacer
+          //const SizedBox(width: 1), // Spacer
           iconPlus,
         ],
       ),
