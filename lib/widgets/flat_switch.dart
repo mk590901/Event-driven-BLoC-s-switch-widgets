@@ -22,7 +22,7 @@ class FlatSwitch extends StatelessWidget implements IClick {
 
   late GestureDetector gestureDetector;
 
-  late SwitchBloc switchBloc;
+  final SwitchBloc switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
 
   FlatSwitch({
     super.key,
@@ -75,7 +75,7 @@ class FlatSwitch extends StatelessWidget implements IClick {
     return BlocProvider<SwitchBloc>(
       //create: (_) => SwitchBloc(SwitchState(SwitchStates.off)),
       create: (_) {
-          switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
+          //switchBloc = SwitchBloc(SwitchState(SwitchStates.off));
           return switchBloc;
         },
       child: BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {

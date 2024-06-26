@@ -38,7 +38,7 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
 
   late GestureDetector gestureDetector;
 
-  late SwitchAdvancedBloc switchBloc;
+  final SwitchAdvancedBloc switchBloc = SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off));
 
   FlatAdvancedRoundedSwitch({
     super.key,
@@ -104,7 +104,7 @@ class FlatAdvancedRoundedSwitch extends StatelessWidget implements IClick {
     return BlocProvider<SwitchAdvancedBloc>(
       //create: (_) => SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off)),
       create: (_) {
-        switchBloc = SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off));
+        //switchBloc = SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off));
         return switchBloc;
       },
       child: BlocBuilder<SwitchAdvancedBloc, SwitchAdvancedState>(builder: (context, state) {

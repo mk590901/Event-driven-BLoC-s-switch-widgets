@@ -33,7 +33,7 @@ class FlatRoundedButton extends StatelessWidget implements IClick {
 
   late GestureDetector gestureDetector;
 
-  late ButtonBloc switchBloc;
+  final ButtonBloc buttonBloc = ButtonBloc(ButtonState(ButtonStates.ready));
 
   FlatRoundedButton({
     super.key,
@@ -64,7 +64,7 @@ class FlatRoundedButton extends StatelessWidget implements IClick {
 
   void reset() {
     try {
-      switchBloc.add(Reset());
+      buttonBloc.add(Reset());
     } catch (exception) {
       debugPrint("******* reset error *******");
     }
@@ -72,7 +72,7 @@ class FlatRoundedButton extends StatelessWidget implements IClick {
 
   void enable() {
     try {
-      switchBloc.add(Enable());
+      buttonBloc.add(Enable());
     } catch (exception) {
       debugPrint("******* enable error *******");
     }
@@ -80,7 +80,7 @@ class FlatRoundedButton extends StatelessWidget implements IClick {
 
   void disable() {
     try {
-      switchBloc.add(Disable());
+      buttonBloc.add(Disable());
     } catch (exception) {
       debugPrint("******* disable error *******");
     }
@@ -94,8 +94,8 @@ class FlatRoundedButton extends StatelessWidget implements IClick {
     return BlocProvider<ButtonBloc>(
       //create: (_) => SwitchAdvancedBloc(SwitchAdvancedState(SwitchAdvancedStates.off)),
       create: (_) {
-        switchBloc = ButtonBloc(ButtonState(ButtonStates.ready));
-        return switchBloc;
+        //switchBloc = ButtonBloc(ButtonState(ButtonStates.ready));
+        return buttonBloc;
       },
       child: BlocBuilder<ButtonBloc, ButtonState>(builder: (context, state) {
         gestureDetector = GestureDetector(
