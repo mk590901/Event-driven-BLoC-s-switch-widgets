@@ -87,7 +87,7 @@ class FlatTextButton extends StatelessWidget implements IClick {
       this.text = text;
       buttonBloc.add(ChangeText());
     } catch (exception) {
-      debugPrint("******* change error *******");
+      debugPrint("* change error * ${exception.toString()}");
     }
   }
 

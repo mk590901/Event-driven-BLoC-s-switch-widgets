@@ -1,26 +1,57 @@
 import 'package:flutter/material.dart';
 
+import 'flat_button.dart';
+import 'flat_text_button.dart';
+
 class FlatZoomSwitch extends StatelessWidget {
   const FlatZoomSwitch({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    Icon iconMinus = const Icon(
-      Icons.remove,
-      color: Colors.white,
-      size: 24.0,
+    FlatTextButton text = FlatTextButton(
+      width: 7,
+      height: 6,
+      canvasDisabledColor: Colors.blueGrey,
+      textColor: Colors.white,
+      textDisabledColor: Colors.limeAccent,
+      textPressedColor: Colors.white,
+      text: "100",
+      fontSize: 12,
+      onUpAction: () {
+      },
+      onDownAction: () {
+      },
     );
 
-    Icon iconPlus = const Icon(
-      Icons.add,  //  add_outlined
-      color: Colors.white,
-      size: 24.0,
+    FlatButton iconMinus = FlatButton(
+      width: 8,
+      height: 6,
+      iconColor: Colors.white,
+      iconDisabledColor: Colors.blueGrey,
+      iconPressedColor: Colors.limeAccent,
+      iconData: Icons.remove,
+      iconDataPressed: Icons.remove,
+      onUpAction: () {
+        text.changeText('75');
+      },
+      onDownAction: () {
+      },
     );
 
-    Text text = const Text(
-      '100',
-      style: TextStyle(fontSize: 14, color: Colors.white),
+    FlatButton iconPlus = FlatButton(
+      width: 6,
+      height: 6,
+      iconColor: Colors.white,
+      iconDisabledColor: Colors.blueGrey,
+      iconPressedColor: Colors.limeAccent,
+      iconData: Icons.add,
+      iconDataPressed: Icons.add,
+      onUpAction: () {
+        text.changeText('125');
+      },
+      onDownAction: () {
+      },
     );
 
     return Container(
