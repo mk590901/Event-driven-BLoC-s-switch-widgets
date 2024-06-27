@@ -4,20 +4,25 @@ import 'flat_button.dart';
 import 'flat_text_button.dart';
 
 class FlatZoomSwitch extends StatelessWidget {
-  const FlatZoomSwitch({super.key});
+
+  final double width;
+  final double height;
+  final double fontSize;
+
+  const FlatZoomSwitch({super.key, required this.width, required this.height, required this.fontSize, });
 
   @override
   Widget build(BuildContext context) {
 
     FlatTextButton text = FlatTextButton(
-      width: 7,
-      height: 6,
+      width: width + 1,
+      height: height,
       canvasDisabledColor: Colors.blueGrey,
       textColor: Colors.white,
       textDisabledColor: Colors.limeAccent,
       textPressedColor: Colors.white,
       text: "100",
-      fontSize: 12,
+      fontSize: fontSize,
       onUpAction: () {
       },
       onDownAction: () {
@@ -25,8 +30,8 @@ class FlatZoomSwitch extends StatelessWidget {
     );
 
     FlatButton iconMinus = FlatButton(
-      width: 8,
-      height: 6,
+      width: width,
+      height: height,
       iconColor: Colors.white,
       iconDisabledColor: Colors.blueGrey,
       iconPressedColor: Colors.limeAccent,
@@ -40,8 +45,8 @@ class FlatZoomSwitch extends StatelessWidget {
     );
 
     FlatButton iconPlus = FlatButton(
-      width: 6,
-      height: 6,
+      width: width,
+      height: height,
       iconColor: Colors.white,
       iconDisabledColor: Colors.blueGrey,
       iconPressedColor: Colors.limeAccent,

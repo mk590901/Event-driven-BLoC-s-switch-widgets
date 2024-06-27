@@ -279,9 +279,8 @@ class SwitchHomePage extends StatelessWidget {
               ]),
 
               const ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
-                FlatZoomSwitch(),
+                FlatZoomSwitch(width: 6, height: 6, fontSize: 12,),
               ]),
-
             ],
           ),
         ),
