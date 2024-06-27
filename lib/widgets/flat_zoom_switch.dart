@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../flow_counter.dart';
 import 'flat_button.dart';
 import 'flat_text_button.dart';
 
@@ -9,7 +10,9 @@ class FlatZoomSwitch extends StatelessWidget {
   final double height;
   final double fontSize;
 
-  const FlatZoomSwitch({super.key, required this.width, required this.height, required this.fontSize, });
+  final FlowCounter flowCounter = FlowCounter(25, 250, 25, 100);
+
+  FlatZoomSwitch({super.key, required this.width, required this.height, required this.fontSize, });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class FlatZoomSwitch extends StatelessWidget {
       textColor: Colors.white,
       textDisabledColor: Colors.limeAccent,
       textPressedColor: Colors.white,
-      text: "100",
+      text: flowCounter.value().toString(),
       fontSize: fontSize,
       onUpAction: () {
       },
@@ -38,7 +41,7 @@ class FlatZoomSwitch extends StatelessWidget {
       iconData: Icons.remove,
       iconDataPressed: Icons.remove,
       onUpAction: () {
-        text.changeText('75');
+        text.changeText(flowCounter.dec().toString());
       },
       onDownAction: () {
       },
@@ -53,7 +56,7 @@ class FlatZoomSwitch extends StatelessWidget {
       iconData: Icons.add,
       iconDataPressed: Icons.add,
       onUpAction: () {
-        text.changeText('125');
+        text.changeText(flowCounter.inc().toString());
       },
       onDownAction: () {
       },
