@@ -8,7 +8,7 @@ import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
 import 'widgets/flat_button.dart';
 import 'widgets/flat_rounded_button.dart';
-import 'widgets/flat_scroll_text.dart';
+import 'widgets/flat_scroll_marker.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
