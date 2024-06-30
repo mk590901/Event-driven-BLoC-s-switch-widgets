@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:button_k_states/widgets/flat_text_rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'pair.dart';
 import 'periodic_action.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
 import 'widgets/flat_button.dart';
 import 'widgets/flat_rounded_button.dart';
+import 'widgets/flat_scroll_text.dart';
 import 'widgets/flat_switch.dart';
 import 'widgets/flat_rounded_switch.dart';
 import 'interfaces/i_click.dart';
@@ -37,6 +41,8 @@ class SwitchHomePage extends StatelessWidget {
 
   final String title;
   bool _startStop = false;
+
+  final Random random = Random();
 
   final PeriodicAction periodicAction =
       PeriodicAction(const Duration(milliseconds: FREQ));
@@ -230,6 +236,8 @@ class SwitchHomePage extends StatelessWidget {
       },
     );
 
+    FlatScrollMarker marker = FlatScrollMarker(width: 14, height: 6, fontSize: 12,);
+
     FlatRoundedSwitch redRoundedBottom = FlatRoundedSwitch(
         width: 12,
         height: 8,
@@ -239,7 +247,11 @@ class SwitchHomePage extends StatelessWidget {
         iconColor: Colors.redAccent,
         T: Icons.deblur_outlined,
         F: Icons.deblur_sharp,
-        onAction: () {});
+        onAction: () {
+          marker.changeCoordinates(
+              Pair<int,int>(randomInt(0,120),randomInt(0,120)),
+              Pair<int,int>(randomInt(20,200),randomInt(0,500)));
+        });
 
     return Scaffold(
       backgroundColor: Colors.white70,
@@ -279,6 +291,8 @@ class SwitchHomePage extends StatelessWidget {
               ]),
 
               ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
+                //FlatScrollMarker(width: 14, height: 6, fontSize: 12,),
+                marker,
                 FlatZoomSwitch(width: 6, height: 6, fontSize: 12,),
               ]),
             ],
@@ -369,4 +383,10 @@ class SwitchHomePage extends StatelessWidget {
       periodicAction.stop();
     }
   }
+
+
+  int randomInt(int a, int b) {
+    return a + random.nextInt(b - a + 1);
+  }
+
 }
