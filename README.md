@@ -33,5 +33,10 @@ https://github.com/mk590901/BLoC-Switches/assets/125393245/94bde50d-fb7a-4a98-92
 ## Resume
 Enjoy (naturally if you enjoy the process of programming), and change the code as you wish.
 
+## Updates (2024, August)
+Added:
+> Text buttons: __FlatTextButton__ and __FlatTextRoundedButton__
+> Widgets __FlatZoomSwitch__, __FlatScrollMarker__ and __AppBarWidget__.
+
 
 

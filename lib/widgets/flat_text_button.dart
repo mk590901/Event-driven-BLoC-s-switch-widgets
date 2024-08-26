@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -20,7 +19,6 @@ class FlatTextButton extends StatelessWidget implements IClick {
   final Color textPressedColor;
   final Color textDisabledColor;
   late String text;
-  //final String textPressed;
   final String textDisabled;
   final double width;
   final double height;
@@ -41,7 +39,6 @@ class FlatTextButton extends StatelessWidget implements IClick {
     this.canvasPressedColor = Colors.transparent,
     this.canvasDisabledColor = Colors.black12,
     this.text = "text",
-    //this.textPressed = "pressed",
     this.textDisabled = "disabled",
     this.textColor = Colors.black,
     this.textPressedColor = Colors.black,
