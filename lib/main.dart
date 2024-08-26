@@ -4,6 +4,7 @@ import 'package:button_k_states/widgets/flat_text_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'pair.dart';
 import 'periodic_action.dart';
+import 'widgets/appbar_widget.dart';
 import 'widgets/flat_advanced_rounded_switch.dart';
 import 'widgets/flat_advanced_switch.dart';
 import 'widgets/flat_button.dart';
@@ -49,6 +50,8 @@ class SwitchHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppBarWidget appBar = AppBarWidget(title: title, subtitle: "Press on button 'Dismiss'", color: Colors.blueAccent);
+    /*
     AppBar appBar = AppBar(
       title: Text(title,
           style: const TextStyle(
@@ -72,6 +75,7 @@ class SwitchHomePage extends StatelessWidget {
       ),
       backgroundColor: Colors.lightBlue,
     );
+    */
 
     FlatSwitch yellow = FlatSwitch(
       canvasColor: Colors.deepOrangeAccent,
@@ -188,9 +192,11 @@ class SwitchHomePage extends StatelessWidget {
       onUpAction: () {
         purple.enable();
         blueRoundedAdvanced.click();
+        appBar.replaceSubtitle("Button 'dismiss' released");
       },
       onDownAction: () {
         purple.disable();
+        appBar.replaceSubtitle("Button 'dismiss' pressed");
       },
     );
 
