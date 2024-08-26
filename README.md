@@ -35,7 +35,7 @@ Enjoy (naturally if you enjoy the process of programming), and change the code a
 
 ## Updates (2024, August)
 > Text buttons: __FlatTextButton__, __FlatTextRoundedButton__
- and widgets __FlatZoomSwitch__, __FlatScrollMarker__, __AppBarWidget__ added to app.
+ and widgets: __FlatZoomSwitch__, __FlatScrollMarker__, __AppBarWidget__ added to app.
 
 
 
